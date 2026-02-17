@@ -32,6 +32,13 @@ Important:
 ![After HarfBuzz](media/after-harfbuzz.png)
 ![Toggle Demo](media/harfbuzz-toggle.gif)
 
+## No-Join Word Settings (Feature Preview)
+
+Use No-Join rules when specific Hindi words (or specific conjunct patterns inside a word) should render disjoined.
+
+![No-Join Selective Before](media/selective-no-join-before.svg)
+![No-Join Selective After](media/selective-no-join-after.svg)
+
 ## Supported
 
 - Editor (macOS/Windows)
@@ -51,4 +58,3 @@ Important:
 
 ### `HarfBuzz font file not found`
 - Assign `.ttf.bytes` in `Harf Buzz Font Bytes` on `HarfBuzzTextMeshProUGUI`.
-
