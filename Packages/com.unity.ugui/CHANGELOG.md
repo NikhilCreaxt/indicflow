@@ -1,12 +1,12 @@
 # Changelog
 
-## [1.1.0] - 2026-02-17
+## [2.0.0-hb.19] - 2026-02-17
 - Implemented **No-Join Word Settings** support in the package runtime.
 - Added project-level no-join configuration through `HarfBuzzHindiNoJoinSettings`.
 - Added selective disjoin support to break only targeted conjunct patterns inside specified words.
 - Added editor configuration workflow to manage no-join entries and selective rules efficiently.
 
-## [1.0.0] - 2026-02-16
+## [2.0.0-hb.1] - 2026-02-16
 - Implemented HarfBuzz-based Hindi/Devanagari shaping successfully for TMP UGUI.
 - Added `TMPro.HarfBuzzTextMeshProUGUI` for proper shaping behavior across ligatures, matras, nasal marks, and nuqta forms.
 - Included native plugin integration for Editor, Android, and iOS targets.
