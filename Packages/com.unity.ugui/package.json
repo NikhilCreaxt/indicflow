@@ -1,0 +1,30 @@
+{
+  "name": "com.unity.ugui",
+  "displayName": "IndicFlow - TMP Text Shaping Engine",
+  "version": "2.0.0-hb.19",
+  "unity": "2019.2",
+  "keywords": [
+    "indicflow",
+    "harfbuzz",
+    "textmeshpro",
+    "devanagari",
+    "hindi",
+    "ugui",
+    "android",
+    "ios",
+    "unity"
+  ],
+  "description": "IndicFlow package for HarfBuzz-powered Indic text shaping in Unity TextMeshPro (UGUI), including Hindi/Devanagari support across Editor, Android, and iOS.",
+  "dependencies": {
+    "com.unity.modules.ui": "1.0.0",
+    "com.unity.modules.imgui": "1.0.0"
+  },
+  "documentationUrl": "Documentation~/HarfBuzzHindiTMP.md",
+  "samples": [
+    {
+      "displayName": "Noto Sans Devanagari Sample Assets",
+      "description": "Sample Devanagari font assets, including .ttf.bytes for HarfBuzz font input.",
+      "path": "Samples~/Noto_Sans_Devanagari"
+    }
+  ]
+}

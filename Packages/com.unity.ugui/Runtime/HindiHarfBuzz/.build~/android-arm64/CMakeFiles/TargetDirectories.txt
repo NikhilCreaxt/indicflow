@@ -1,0 +1,3 @@
+/Volumes/Projects/Hindi Font System/Packages/com.unity.ugui/Runtime/HindiHarfBuzz/.build/android-arm64/CMakeFiles/HindiHarfBuzz.dir
+/Volumes/Projects/Hindi Font System/Packages/com.unity.ugui/Runtime/HindiHarfBuzz/.build/android-arm64/CMakeFiles/edit_cache.dir
+/Volumes/Projects/Hindi Font System/Packages/com.unity.ugui/Runtime/HindiHarfBuzz/.build/android-arm64/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,1589 @@
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineSystem.cmake:12 (find_program)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_UNAME"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "uname"
+    candidate_directories:
+      - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh/"
+      - "/opt/homebrew/lib/ruby/gems/4.0.0/bin/"
+      - "/opt/homebrew/opt/ruby/bin/"
+      - "/Users/nikhil.karande/miniconda3/bin/"
+      - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/nikhil.karande/.dotnet/tools/"
+      - "/Volumes/Projects/flutter/bin/"
+      - "/Users/nikhil.karande/Library/Android/sdk/platform-tools/"
+      - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64/"
+    searched_directories:
+      - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh/uname"
+      - "/opt/homebrew/lib/ruby/gems/4.0.0/bin/uname"
+      - "/opt/homebrew/opt/ruby/bin/uname"
+      - "/Users/nikhil.karande/miniconda3/bin/uname"
+      - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS/uname"
+      - "/opt/homebrew/bin/uname"
+      - "/opt/homebrew/sbin/uname"
+      - "/usr/local/bin/uname"
+      - "/System/Cryptexes/App/usr/bin/uname"
+    found: "/usr/bin/uname"
+    search_context:
+      ENV{PATH}:
+        - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh"
+        - "/opt/homebrew/lib/ruby/gems/4.0.0/bin"
+        - "/opt/homebrew/opt/ruby/bin"
+        - "/Users/nikhil.karande/miniconda3/bin"
+        - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/Volumes/Projects/flutter/bin"
+        - "/Users/nikhil.karande/Library/Android/sdk/platform-tools"
+        - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineSystem.cmake:207 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The target system is: Android - 1 - aarch64
+      The host system is: Darwin - 25.0.0 - arm64
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeUnixFindMake.cmake:5 (find_program)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_MAKE_PROGRAM"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gmake"
+      - "make"
+      - "smake"
+    candidate_directories:
+      - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/"
+      - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sbin/"
+      - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/"
+      - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh/"
+      - "/opt/homebrew/lib/ruby/gems/4.0.0/bin/"
+      - "/opt/homebrew/opt/ruby/bin/"
+      - "/Users/nikhil.karande/miniconda3/bin/"
+      - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/nikhil.karande/.dotnet/tools/"
+      - "/Volumes/Projects/flutter/bin/"
+      - "/Users/nikhil.karande/Library/Android/sdk/platform-tools/"
+      - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64/"
+      - "/usr/lib/aarch64-linux-android/23/bin/"
+      - "/usr/lib/aarch64-linux-android/23/sbin/"
+      - "/usr/lib/aarch64-linux-android/23/"
+    searched_directories:
+      - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/gmake"
+      - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sbin/gmake"
+      - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/gmake"
+      - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh/gmake"
+      - "/opt/homebrew/lib/ruby/gems/4.0.0/bin/gmake"
+      - "/opt/homebrew/opt/ruby/bin/gmake"
+      - "/Users/nikhil.karande/miniconda3/bin/gmake"
+      - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS/gmake"
+      - "/opt/homebrew/bin/gmake"
+      - "/opt/homebrew/sbin/gmake"
+      - "/usr/local/bin/gmake"
+      - "/System/Cryptexes/App/usr/bin/gmake"
+      - "/usr/bin/gmake"
+      - "/bin/gmake"
+      - "/usr/sbin/gmake"
+      - "/sbin/gmake"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/gmake"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/gmake"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/gmake"
+      - "/Library/Apple/usr/bin/gmake"
+      - "/usr/local/share/dotnet/gmake"
+      - "/Users/nikhil.karande/.dotnet/tools/gmake"
+      - "/Volumes/Projects/flutter/bin/gmake"
+      - "/Users/nikhil.karande/Library/Android/sdk/platform-tools/gmake"
+      - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64/gmake"
+      - "/usr/lib/aarch64-linux-android/23/bin/gmake"
+      - "/usr/lib/aarch64-linux-android/23/sbin/gmake"
+      - "/usr/lib/aarch64-linux-android/23/gmake"
+      - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/make"
+      - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sbin/make"
+      - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/make"
+      - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh/make"
+      - "/opt/homebrew/lib/ruby/gems/4.0.0/bin/make"
+      - "/opt/homebrew/opt/ruby/bin/make"
+      - "/Users/nikhil.karande/miniconda3/bin/make"
+      - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS/make"
+      - "/opt/homebrew/bin/make"
+      - "/opt/homebrew/sbin/make"
+      - "/usr/local/bin/make"
+      - "/System/Cryptexes/App/usr/bin/make"
+    found: "/usr/bin/make"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64"
+      ENV{PATH}:
+        - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh"
+        - "/opt/homebrew/lib/ruby/gems/4.0.0/bin"
+        - "/opt/homebrew/opt/ruby/bin"
+        - "/Users/nikhil.karande/miniconda3/bin"
+        - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/Volumes/Projects/flutter/bin"
+        - "/Users/nikhil.karande/Library/Android/sdk/platform-tools"
+        - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/aarch64-linux-android/23"
+      CMAKE_SYSROOT: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCCompilerId.c.in"
+    candidate_directories:
+      - "/opt/homebrew/share/cmake/Modules/"
+    found: "/opt/homebrew/share/cmake/Modules/CMakeCCompilerId.c.in"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64"
+      ENV{PATH}:
+        - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh"
+        - "/opt/homebrew/lib/ruby/gems/4.0.0/bin"
+        - "/opt/homebrew/opt/ruby/bin"
+        - "/Users/nikhil.karande/miniconda3/bin"
+        - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/Volumes/Projects/flutter/bin"
+        - "/Users/nikhil.karande/Library/Android/sdk/platform-tools"
+        - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/aarch64-linux-android/23"
+      CMAKE_SYSROOT: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang 
+      Build flags: -g;-DANDROID;-fdata-sections;-ffunction-sections;-funwind-tables;-fstack-protector-strong;-no-canonical-prefixes;-D_FORTIFY_SOURCE=2;-Wformat;-Werror=format-security
+      Id flags: -c;--target=aarch64-none-linux-android23 
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.o"
+      
+      The C compiler identification is Clang, found in:
+        /Volumes/Projects/Hindi Font System/Packages/com.unity.ugui/Runtime/HindiHarfBuzz/.build/android-arm64/CMakeFiles/4.2.3/CompilerIdC/CMakeCCompilerId.o
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_LINKER"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ld.lld"
+      - "ld"
+    candidate_directories:
+      - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/"
+      - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh/"
+      - "/opt/homebrew/lib/ruby/gems/4.0.0/bin/"
+      - "/opt/homebrew/opt/ruby/bin/"
+      - "/Users/nikhil.karande/miniconda3/bin/"
+      - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/nikhil.karande/.dotnet/tools/"
+      - "/Volumes/Projects/flutter/bin/"
+      - "/Users/nikhil.karande/Library/Android/sdk/platform-tools/"
+      - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64/"
+      - "/usr/lib/aarch64-linux-android/23/bin/"
+      - "/usr/lib/aarch64-linux-android/23/sbin/"
+      - "/usr/lib/aarch64-linux-android/23/"
+    found: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/ld.lld"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64"
+      ENV{PATH}:
+        - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh"
+        - "/opt/homebrew/lib/ruby/gems/4.0.0/bin"
+        - "/opt/homebrew/opt/ruby/bin"
+        - "/Users/nikhil.karande/miniconda3/bin"
+        - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/Volumes/Projects/flutter/bin"
+        - "/Users/nikhil.karande/Library/Android/sdk/platform-tools"
+        - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/aarch64-linux-android/23"
+      CMAKE_SYSROOT: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_NM"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-nm"
+      - "nm"
+    candidate_directories:
+      - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/"
+      - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh/"
+      - "/opt/homebrew/lib/ruby/gems/4.0.0/bin/"
+      - "/opt/homebrew/opt/ruby/bin/"
+      - "/Users/nikhil.karande/miniconda3/bin/"
+      - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/nikhil.karande/.dotnet/tools/"
+      - "/Volumes/Projects/flutter/bin/"
+      - "/Users/nikhil.karande/Library/Android/sdk/platform-tools/"
+      - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64/"
+      - "/usr/lib/aarch64-linux-android/23/bin/"
+      - "/usr/lib/aarch64-linux-android/23/sbin/"
+      - "/usr/lib/aarch64-linux-android/23/"
+    found: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-nm"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64"
+      ENV{PATH}:
+        - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh"
+        - "/opt/homebrew/lib/ruby/gems/4.0.0/bin"
+        - "/opt/homebrew/opt/ruby/bin"
+        - "/Users/nikhil.karande/miniconda3/bin"
+        - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/Volumes/Projects/flutter/bin"
+        - "/Users/nikhil.karande/Library/Android/sdk/platform-tools"
+        - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/aarch64-linux-android/23"
+      CMAKE_SYSROOT: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJDUMP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-objdump"
+      - "objdump"
+    candidate_directories:
+      - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/"
+      - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh/"
+      - "/opt/homebrew/lib/ruby/gems/4.0.0/bin/"
+      - "/opt/homebrew/opt/ruby/bin/"
+      - "/Users/nikhil.karande/miniconda3/bin/"
+      - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/nikhil.karande/.dotnet/tools/"
+      - "/Volumes/Projects/flutter/bin/"
+      - "/Users/nikhil.karande/Library/Android/sdk/platform-tools/"
+      - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64/"
+      - "/usr/lib/aarch64-linux-android/23/bin/"
+      - "/usr/lib/aarch64-linux-android/23/sbin/"
+      - "/usr/lib/aarch64-linux-android/23/"
+    found: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-objdump"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64"
+      ENV{PATH}:
+        - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh"
+        - "/opt/homebrew/lib/ruby/gems/4.0.0/bin"
+        - "/opt/homebrew/opt/ruby/bin"
+        - "/Users/nikhil.karande/miniconda3/bin"
+        - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/Volumes/Projects/flutter/bin"
+        - "/Users/nikhil.karande/Library/Android/sdk/platform-tools"
+        - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/aarch64-linux-android/23"
+      CMAKE_SYSROOT: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJCOPY"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-objcopy"
+      - "objcopy"
+    candidate_directories:
+      - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/"
+      - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh/"
+      - "/opt/homebrew/lib/ruby/gems/4.0.0/bin/"
+      - "/opt/homebrew/opt/ruby/bin/"
+      - "/Users/nikhil.karande/miniconda3/bin/"
+      - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/nikhil.karande/.dotnet/tools/"
+      - "/Volumes/Projects/flutter/bin/"
+      - "/Users/nikhil.karande/Library/Android/sdk/platform-tools/"
+      - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64/"
+      - "/usr/lib/aarch64-linux-android/23/bin/"
+      - "/usr/lib/aarch64-linux-android/23/sbin/"
+      - "/usr/lib/aarch64-linux-android/23/"
+    found: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-objcopy"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64"
+      ENV{PATH}:
+        - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh"
+        - "/opt/homebrew/lib/ruby/gems/4.0.0/bin"
+        - "/opt/homebrew/opt/ruby/bin"
+        - "/Users/nikhil.karande/miniconda3/bin"
+        - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/Volumes/Projects/flutter/bin"
+        - "/Users/nikhil.karande/Library/Android/sdk/platform-tools"
+        - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/aarch64-linux-android/23"
+      CMAKE_SYSROOT: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_READELF"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-readelf"
+      - "readelf"
+    candidate_directories:
+      - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/"
+      - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh/"
+      - "/opt/homebrew/lib/ruby/gems/4.0.0/bin/"
+      - "/opt/homebrew/opt/ruby/bin/"
+      - "/Users/nikhil.karande/miniconda3/bin/"
+      - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/nikhil.karande/.dotnet/tools/"
+      - "/Volumes/Projects/flutter/bin/"
+      - "/Users/nikhil.karande/Library/Android/sdk/platform-tools/"
+      - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64/"
+      - "/usr/lib/aarch64-linux-android/23/bin/"
+      - "/usr/lib/aarch64-linux-android/23/sbin/"
+      - "/usr/lib/aarch64-linux-android/23/"
+    found: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-readelf"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64"
+      ENV{PATH}:
+        - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh"
+        - "/opt/homebrew/lib/ruby/gems/4.0.0/bin"
+        - "/opt/homebrew/opt/ruby/bin"
+        - "/Users/nikhil.karande/miniconda3/bin"
+        - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/Volumes/Projects/flutter/bin"
+        - "/Users/nikhil.karande/Library/Android/sdk/platform-tools"
+        - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/aarch64-linux-android/23"
+      CMAKE_SYSROOT: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_DLLTOOL"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-dlltool"
+      - "dlltool"
+    candidate_directories:
+      - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/"
+      - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh/"
+      - "/opt/homebrew/lib/ruby/gems/4.0.0/bin/"
+      - "/opt/homebrew/opt/ruby/bin/"
+      - "/Users/nikhil.karande/miniconda3/bin/"
+      - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/nikhil.karande/.dotnet/tools/"
+      - "/Volumes/Projects/flutter/bin/"
+      - "/Users/nikhil.karande/Library/Android/sdk/platform-tools/"
+      - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64/"
+      - "/usr/lib/aarch64-linux-android/23/bin/"
+      - "/usr/lib/aarch64-linux-android/23/sbin/"
+      - "/usr/lib/aarch64-linux-android/23/"
+    found: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-dlltool"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64"
+      ENV{PATH}:
+        - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh"
+        - "/opt/homebrew/lib/ruby/gems/4.0.0/bin"
+        - "/opt/homebrew/opt/ruby/bin"
+        - "/Users/nikhil.karande/miniconda3/bin"
+        - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/Volumes/Projects/flutter/bin"
+        - "/Users/nikhil.karande/Library/Android/sdk/platform-tools"
+        - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/aarch64-linux-android/23"
+      CMAKE_SYSROOT: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_ADDR2LINE"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-addr2line"
+      - "addr2line"
+    candidate_directories:
+      - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/"
+      - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh/"
+      - "/opt/homebrew/lib/ruby/gems/4.0.0/bin/"
+      - "/opt/homebrew/opt/ruby/bin/"
+      - "/Users/nikhil.karande/miniconda3/bin/"
+      - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/nikhil.karande/.dotnet/tools/"
+      - "/Volumes/Projects/flutter/bin/"
+      - "/Users/nikhil.karande/Library/Android/sdk/platform-tools/"
+      - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64/"
+      - "/usr/lib/aarch64-linux-android/23/bin/"
+      - "/usr/lib/aarch64-linux-android/23/sbin/"
+      - "/usr/lib/aarch64-linux-android/23/"
+    found: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-addr2line"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64"
+      ENV{PATH}:
+        - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh"
+        - "/opt/homebrew/lib/ruby/gems/4.0.0/bin"
+        - "/opt/homebrew/opt/ruby/bin"
+        - "/Users/nikhil.karande/miniconda3/bin"
+        - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/Volumes/Projects/flutter/bin"
+        - "/Users/nikhil.karande/Library/Android/sdk/platform-tools"
+        - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/aarch64-linux-android/23"
+      CMAKE_SYSROOT: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_TAPI"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "tapi"
+    candidate_directories:
+      - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/"
+      - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh/"
+      - "/opt/homebrew/lib/ruby/gems/4.0.0/bin/"
+      - "/opt/homebrew/opt/ruby/bin/"
+      - "/Users/nikhil.karande/miniconda3/bin/"
+      - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/nikhil.karande/.dotnet/tools/"
+      - "/Volumes/Projects/flutter/bin/"
+      - "/Users/nikhil.karande/Library/Android/sdk/platform-tools/"
+      - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64/"
+      - "/usr/lib/aarch64-linux-android/23/bin/"
+      - "/usr/lib/aarch64-linux-android/23/sbin/"
+      - "/usr/lib/aarch64-linux-android/23/"
+    searched_directories:
+      - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/tapi"
+      - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh/tapi"
+      - "/opt/homebrew/lib/ruby/gems/4.0.0/bin/tapi"
+      - "/opt/homebrew/opt/ruby/bin/tapi"
+      - "/Users/nikhil.karande/miniconda3/bin/tapi"
+      - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS/tapi"
+      - "/opt/homebrew/bin/tapi"
+      - "/opt/homebrew/sbin/tapi"
+      - "/usr/local/bin/tapi"
+      - "/System/Cryptexes/App/usr/bin/tapi"
+      - "/usr/bin/tapi"
+      - "/bin/tapi"
+      - "/usr/sbin/tapi"
+      - "/sbin/tapi"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/tapi"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/tapi"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/tapi"
+      - "/Library/Apple/usr/bin/tapi"
+      - "/usr/local/share/dotnet/tapi"
+      - "/Users/nikhil.karande/.dotnet/tools/tapi"
+      - "/Volumes/Projects/flutter/bin/tapi"
+      - "/Users/nikhil.karande/Library/Android/sdk/platform-tools/tapi"
+      - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64/tapi"
+      - "/usr/lib/aarch64-linux-android/23/bin/tapi"
+      - "/usr/lib/aarch64-linux-android/23/sbin/tapi"
+      - "/usr/lib/aarch64-linux-android/23/tapi"
+    found: false
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64"
+      ENV{PATH}:
+        - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh"
+        - "/opt/homebrew/lib/ruby/gems/4.0.0/bin"
+        - "/opt/homebrew/opt/ruby/bin"
+        - "/Users/nikhil.karande/miniconda3/bin"
+        - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/Volumes/Projects/flutter/bin"
+        - "/Users/nikhil.karande/Library/Android/sdk/platform-tools"
+        - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/aarch64-linux-android/23"
+      CMAKE_SYSROOT: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/Compiler/Clang-FindBinUtils.cmake:26 (find_program)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER_AR"
+    description: "LLVM archiver"
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-ar-18.0"
+      - "llvm-ar-18"
+      - "llvm-ar18"
+      - "llvm-ar"
+    candidate_directories:
+      - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/"
+      - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh/"
+      - "/opt/homebrew/lib/ruby/gems/4.0.0/bin/"
+      - "/opt/homebrew/opt/ruby/bin/"
+      - "/Users/nikhil.karande/miniconda3/bin/"
+      - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/nikhil.karande/.dotnet/tools/"
+      - "/Volumes/Projects/flutter/bin/"
+      - "/Users/nikhil.karande/Library/Android/sdk/platform-tools/"
+      - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64/"
+      - "/usr/lib/aarch64-linux-android/23/bin/"
+      - "/usr/lib/aarch64-linux-android/23/sbin/"
+      - "/usr/lib/aarch64-linux-android/23/"
+    searched_directories:
+      - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-ar-18.0"
+      - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh/llvm-ar-18.0"
+      - "/opt/homebrew/lib/ruby/gems/4.0.0/bin/llvm-ar-18.0"
+      - "/opt/homebrew/opt/ruby/bin/llvm-ar-18.0"
+      - "/Users/nikhil.karande/miniconda3/bin/llvm-ar-18.0"
+      - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS/llvm-ar-18.0"
+      - "/opt/homebrew/bin/llvm-ar-18.0"
+      - "/opt/homebrew/sbin/llvm-ar-18.0"
+      - "/usr/local/bin/llvm-ar-18.0"
+      - "/System/Cryptexes/App/usr/bin/llvm-ar-18.0"
+      - "/usr/bin/llvm-ar-18.0"
+      - "/bin/llvm-ar-18.0"
+      - "/usr/sbin/llvm-ar-18.0"
+      - "/sbin/llvm-ar-18.0"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/llvm-ar-18.0"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/llvm-ar-18.0"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/llvm-ar-18.0"
+      - "/Library/Apple/usr/bin/llvm-ar-18.0"
+      - "/usr/local/share/dotnet/llvm-ar-18.0"
+      - "/Users/nikhil.karande/.dotnet/tools/llvm-ar-18.0"
+      - "/Volumes/Projects/flutter/bin/llvm-ar-18.0"
+      - "/Users/nikhil.karande/Library/Android/sdk/platform-tools/llvm-ar-18.0"
+      - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64/llvm-ar-18.0"
+      - "/usr/lib/aarch64-linux-android/23/bin/llvm-ar-18.0"
+      - "/usr/lib/aarch64-linux-android/23/sbin/llvm-ar-18.0"
+      - "/usr/lib/aarch64-linux-android/23/llvm-ar-18.0"
+      - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-ar-18"
+      - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh/llvm-ar-18"
+      - "/opt/homebrew/lib/ruby/gems/4.0.0/bin/llvm-ar-18"
+      - "/opt/homebrew/opt/ruby/bin/llvm-ar-18"
+      - "/Users/nikhil.karande/miniconda3/bin/llvm-ar-18"
+      - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS/llvm-ar-18"
+      - "/opt/homebrew/bin/llvm-ar-18"
+      - "/opt/homebrew/sbin/llvm-ar-18"
+      - "/usr/local/bin/llvm-ar-18"
+      - "/System/Cryptexes/App/usr/bin/llvm-ar-18"
+      - "/usr/bin/llvm-ar-18"
+      - "/bin/llvm-ar-18"
+      - "/usr/sbin/llvm-ar-18"
+      - "/sbin/llvm-ar-18"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/llvm-ar-18"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/llvm-ar-18"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/llvm-ar-18"
+      - "/Library/Apple/usr/bin/llvm-ar-18"
+      - "/usr/local/share/dotnet/llvm-ar-18"
+      - "/Users/nikhil.karande/.dotnet/tools/llvm-ar-18"
+      - "/Volumes/Projects/flutter/bin/llvm-ar-18"
+      - "/Users/nikhil.karande/Library/Android/sdk/platform-tools/llvm-ar-18"
+      - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64/llvm-ar-18"
+      - "/usr/lib/aarch64-linux-android/23/bin/llvm-ar-18"
+      - "/usr/lib/aarch64-linux-android/23/sbin/llvm-ar-18"
+      - "/usr/lib/aarch64-linux-android/23/llvm-ar-18"
+      - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-ar18"
+      - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh/llvm-ar18"
+      - "/opt/homebrew/lib/ruby/gems/4.0.0/bin/llvm-ar18"
+      - "/opt/homebrew/opt/ruby/bin/llvm-ar18"
+      - "/Users/nikhil.karande/miniconda3/bin/llvm-ar18"
+      - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS/llvm-ar18"
+      - "/opt/homebrew/bin/llvm-ar18"
+      - "/opt/homebrew/sbin/llvm-ar18"
+      - "/usr/local/bin/llvm-ar18"
+      - "/System/Cryptexes/App/usr/bin/llvm-ar18"
+      - "/usr/bin/llvm-ar18"
+      - "/bin/llvm-ar18"
+      - "/usr/sbin/llvm-ar18"
+      - "/sbin/llvm-ar18"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/llvm-ar18"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/llvm-ar18"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/llvm-ar18"
+      - "/Library/Apple/usr/bin/llvm-ar18"
+      - "/usr/local/share/dotnet/llvm-ar18"
+      - "/Users/nikhil.karande/.dotnet/tools/llvm-ar18"
+      - "/Volumes/Projects/flutter/bin/llvm-ar18"
+      - "/Users/nikhil.karande/Library/Android/sdk/platform-tools/llvm-ar18"
+      - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64/llvm-ar18"
+      - "/usr/lib/aarch64-linux-android/23/bin/llvm-ar18"
+      - "/usr/lib/aarch64-linux-android/23/sbin/llvm-ar18"
+      - "/usr/lib/aarch64-linux-android/23/llvm-ar18"
+    found: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-ar"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64"
+      ENV{PATH}:
+        - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh"
+        - "/opt/homebrew/lib/ruby/gems/4.0.0/bin"
+        - "/opt/homebrew/opt/ruby/bin"
+        - "/Users/nikhil.karande/miniconda3/bin"
+        - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/Volumes/Projects/flutter/bin"
+        - "/Users/nikhil.karande/Library/Android/sdk/platform-tools"
+        - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/aarch64-linux-android/23"
+      CMAKE_SYSROOT: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/Compiler/Clang-FindBinUtils.cmake:38 (find_program)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER_RANLIB"
+    description: "Generate index for LLVM archive"
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-ranlib-18.0"
+      - "llvm-ranlib-18"
+      - "llvm-ranlib18"
+      - "llvm-ranlib"
+    candidate_directories:
+      - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/"
+      - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh/"
+      - "/opt/homebrew/lib/ruby/gems/4.0.0/bin/"
+      - "/opt/homebrew/opt/ruby/bin/"
+      - "/Users/nikhil.karande/miniconda3/bin/"
+      - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/nikhil.karande/.dotnet/tools/"
+      - "/Volumes/Projects/flutter/bin/"
+      - "/Users/nikhil.karande/Library/Android/sdk/platform-tools/"
+      - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64/"
+      - "/usr/lib/aarch64-linux-android/23/bin/"
+      - "/usr/lib/aarch64-linux-android/23/sbin/"
+      - "/usr/lib/aarch64-linux-android/23/"
+    searched_directories:
+      - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-ranlib-18.0"
+      - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh/llvm-ranlib-18.0"
+      - "/opt/homebrew/lib/ruby/gems/4.0.0/bin/llvm-ranlib-18.0"
+      - "/opt/homebrew/opt/ruby/bin/llvm-ranlib-18.0"
+      - "/Users/nikhil.karande/miniconda3/bin/llvm-ranlib-18.0"
+      - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS/llvm-ranlib-18.0"
+      - "/opt/homebrew/bin/llvm-ranlib-18.0"
+      - "/opt/homebrew/sbin/llvm-ranlib-18.0"
+      - "/usr/local/bin/llvm-ranlib-18.0"
+      - "/System/Cryptexes/App/usr/bin/llvm-ranlib-18.0"
+      - "/usr/bin/llvm-ranlib-18.0"
+      - "/bin/llvm-ranlib-18.0"
+      - "/usr/sbin/llvm-ranlib-18.0"
+      - "/sbin/llvm-ranlib-18.0"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/llvm-ranlib-18.0"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/llvm-ranlib-18.0"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/llvm-ranlib-18.0"
+      - "/Library/Apple/usr/bin/llvm-ranlib-18.0"
+      - "/usr/local/share/dotnet/llvm-ranlib-18.0"
+      - "/Users/nikhil.karande/.dotnet/tools/llvm-ranlib-18.0"
+      - "/Volumes/Projects/flutter/bin/llvm-ranlib-18.0"
+      - "/Users/nikhil.karande/Library/Android/sdk/platform-tools/llvm-ranlib-18.0"
+      - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64/llvm-ranlib-18.0"
+      - "/usr/lib/aarch64-linux-android/23/bin/llvm-ranlib-18.0"
+      - "/usr/lib/aarch64-linux-android/23/sbin/llvm-ranlib-18.0"
+      - "/usr/lib/aarch64-linux-android/23/llvm-ranlib-18.0"
+      - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-ranlib-18"
+      - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh/llvm-ranlib-18"
+      - "/opt/homebrew/lib/ruby/gems/4.0.0/bin/llvm-ranlib-18"
+      - "/opt/homebrew/opt/ruby/bin/llvm-ranlib-18"
+      - "/Users/nikhil.karande/miniconda3/bin/llvm-ranlib-18"
+      - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS/llvm-ranlib-18"
+      - "/opt/homebrew/bin/llvm-ranlib-18"
+      - "/opt/homebrew/sbin/llvm-ranlib-18"
+      - "/usr/local/bin/llvm-ranlib-18"
+      - "/System/Cryptexes/App/usr/bin/llvm-ranlib-18"
+      - "/usr/bin/llvm-ranlib-18"
+      - "/bin/llvm-ranlib-18"
+      - "/usr/sbin/llvm-ranlib-18"
+      - "/sbin/llvm-ranlib-18"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/llvm-ranlib-18"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/llvm-ranlib-18"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/llvm-ranlib-18"
+      - "/Library/Apple/usr/bin/llvm-ranlib-18"
+      - "/usr/local/share/dotnet/llvm-ranlib-18"
+      - "/Users/nikhil.karande/.dotnet/tools/llvm-ranlib-18"
+      - "/Volumes/Projects/flutter/bin/llvm-ranlib-18"
+      - "/Users/nikhil.karande/Library/Android/sdk/platform-tools/llvm-ranlib-18"
+      - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64/llvm-ranlib-18"
+      - "/usr/lib/aarch64-linux-android/23/bin/llvm-ranlib-18"
+      - "/usr/lib/aarch64-linux-android/23/sbin/llvm-ranlib-18"
+      - "/usr/lib/aarch64-linux-android/23/llvm-ranlib-18"
+      - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-ranlib18"
+      - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh/llvm-ranlib18"
+      - "/opt/homebrew/lib/ruby/gems/4.0.0/bin/llvm-ranlib18"
+      - "/opt/homebrew/opt/ruby/bin/llvm-ranlib18"
+      - "/Users/nikhil.karande/miniconda3/bin/llvm-ranlib18"
+      - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS/llvm-ranlib18"
+      - "/opt/homebrew/bin/llvm-ranlib18"
+      - "/opt/homebrew/sbin/llvm-ranlib18"
+      - "/usr/local/bin/llvm-ranlib18"
+      - "/System/Cryptexes/App/usr/bin/llvm-ranlib18"
+      - "/usr/bin/llvm-ranlib18"
+      - "/bin/llvm-ranlib18"
+      - "/usr/sbin/llvm-ranlib18"
+      - "/sbin/llvm-ranlib18"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/llvm-ranlib18"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/llvm-ranlib18"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/llvm-ranlib18"
+      - "/Library/Apple/usr/bin/llvm-ranlib18"
+      - "/usr/local/share/dotnet/llvm-ranlib18"
+      - "/Users/nikhil.karande/.dotnet/tools/llvm-ranlib18"
+      - "/Volumes/Projects/flutter/bin/llvm-ranlib18"
+      - "/Users/nikhil.karande/Library/Android/sdk/platform-tools/llvm-ranlib18"
+      - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64/llvm-ranlib18"
+      - "/usr/lib/aarch64-linux-android/23/bin/llvm-ranlib18"
+      - "/usr/lib/aarch64-linux-android/23/sbin/llvm-ranlib18"
+      - "/usr/lib/aarch64-linux-android/23/llvm-ranlib18"
+    found: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-ranlib"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64"
+      ENV{PATH}:
+        - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh"
+        - "/opt/homebrew/lib/ruby/gems/4.0.0/bin"
+        - "/opt/homebrew/opt/ruby/bin"
+        - "/Users/nikhil.karande/miniconda3/bin"
+        - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/Volumes/Projects/flutter/bin"
+        - "/Users/nikhil.karande/Library/Android/sdk/platform-tools"
+        - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/aarch64-linux-android/23"
+      CMAKE_SYSROOT: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/Compiler/Clang-FindBinUtils.cmake:50 (find_program)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER_CLANG_SCAN_DEPS"
+    description: "`clang-scan-deps` dependency scanner"
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "clang-scan-deps-18.0"
+      - "clang-scan-deps-18"
+      - "clang-scan-deps18"
+      - "clang-scan-deps"
+    candidate_directories:
+      - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/"
+      - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh/"
+      - "/opt/homebrew/lib/ruby/gems/4.0.0/bin/"
+      - "/opt/homebrew/opt/ruby/bin/"
+      - "/Users/nikhil.karande/miniconda3/bin/"
+      - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS/"
+      - "/opt/homebrew/bin/"
+      - "/opt/homebrew/sbin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/nikhil.karande/.dotnet/tools/"
+      - "/Volumes/Projects/flutter/bin/"
+      - "/Users/nikhil.karande/Library/Android/sdk/platform-tools/"
+      - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64/"
+      - "/usr/lib/aarch64-linux-android/23/bin/"
+      - "/usr/lib/aarch64-linux-android/23/sbin/"
+      - "/usr/lib/aarch64-linux-android/23/"
+    searched_directories:
+      - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang-scan-deps-18.0"
+      - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh/clang-scan-deps-18.0"
+      - "/opt/homebrew/lib/ruby/gems/4.0.0/bin/clang-scan-deps-18.0"
+      - "/opt/homebrew/opt/ruby/bin/clang-scan-deps-18.0"
+      - "/Users/nikhil.karande/miniconda3/bin/clang-scan-deps-18.0"
+      - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS/clang-scan-deps-18.0"
+      - "/opt/homebrew/bin/clang-scan-deps-18.0"
+      - "/opt/homebrew/sbin/clang-scan-deps-18.0"
+      - "/usr/local/bin/clang-scan-deps-18.0"
+      - "/System/Cryptexes/App/usr/bin/clang-scan-deps-18.0"
+      - "/usr/bin/clang-scan-deps-18.0"
+      - "/bin/clang-scan-deps-18.0"
+      - "/usr/sbin/clang-scan-deps-18.0"
+      - "/sbin/clang-scan-deps-18.0"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/clang-scan-deps-18.0"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/clang-scan-deps-18.0"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/clang-scan-deps-18.0"
+      - "/Library/Apple/usr/bin/clang-scan-deps-18.0"
+      - "/usr/local/share/dotnet/clang-scan-deps-18.0"
+      - "/Users/nikhil.karande/.dotnet/tools/clang-scan-deps-18.0"
+      - "/Volumes/Projects/flutter/bin/clang-scan-deps-18.0"
+      - "/Users/nikhil.karande/Library/Android/sdk/platform-tools/clang-scan-deps-18.0"
+      - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64/clang-scan-deps-18.0"
+      - "/usr/lib/aarch64-linux-android/23/bin/clang-scan-deps-18.0"
+      - "/usr/lib/aarch64-linux-android/23/sbin/clang-scan-deps-18.0"
+      - "/usr/lib/aarch64-linux-android/23/clang-scan-deps-18.0"
+      - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang-scan-deps-18"
+      - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh/clang-scan-deps-18"
+      - "/opt/homebrew/lib/ruby/gems/4.0.0/bin/clang-scan-deps-18"
+      - "/opt/homebrew/opt/ruby/bin/clang-scan-deps-18"
+      - "/Users/nikhil.karande/miniconda3/bin/clang-scan-deps-18"
+      - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS/clang-scan-deps-18"
+      - "/opt/homebrew/bin/clang-scan-deps-18"
+      - "/opt/homebrew/sbin/clang-scan-deps-18"
+      - "/usr/local/bin/clang-scan-deps-18"
+      - "/System/Cryptexes/App/usr/bin/clang-scan-deps-18"
+      - "/usr/bin/clang-scan-deps-18"
+      - "/bin/clang-scan-deps-18"
+      - "/usr/sbin/clang-scan-deps-18"
+      - "/sbin/clang-scan-deps-18"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/clang-scan-deps-18"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/clang-scan-deps-18"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/clang-scan-deps-18"
+      - "/Library/Apple/usr/bin/clang-scan-deps-18"
+      - "/usr/local/share/dotnet/clang-scan-deps-18"
+      - "/Users/nikhil.karande/.dotnet/tools/clang-scan-deps-18"
+      - "/Volumes/Projects/flutter/bin/clang-scan-deps-18"
+      - "/Users/nikhil.karande/Library/Android/sdk/platform-tools/clang-scan-deps-18"
+      - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64/clang-scan-deps-18"
+      - "/usr/lib/aarch64-linux-android/23/bin/clang-scan-deps-18"
+      - "/usr/lib/aarch64-linux-android/23/sbin/clang-scan-deps-18"
+      - "/usr/lib/aarch64-linux-android/23/clang-scan-deps-18"
+      - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang-scan-deps18"
+      - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh/clang-scan-deps18"
+      - "/opt/homebrew/lib/ruby/gems/4.0.0/bin/clang-scan-deps18"
+      - "/opt/homebrew/opt/ruby/bin/clang-scan-deps18"
+      - "/Users/nikhil.karande/miniconda3/bin/clang-scan-deps18"
+      - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS/clang-scan-deps18"
+      - "/opt/homebrew/bin/clang-scan-deps18"
+      - "/opt/homebrew/sbin/clang-scan-deps18"
+      - "/usr/local/bin/clang-scan-deps18"
+      - "/System/Cryptexes/App/usr/bin/clang-scan-deps18"
+      - "/usr/bin/clang-scan-deps18"
+      - "/bin/clang-scan-deps18"
+      - "/usr/sbin/clang-scan-deps18"
+      - "/sbin/clang-scan-deps18"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/clang-scan-deps18"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/clang-scan-deps18"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/clang-scan-deps18"
+      - "/Library/Apple/usr/bin/clang-scan-deps18"
+      - "/usr/local/share/dotnet/clang-scan-deps18"
+      - "/Users/nikhil.karande/.dotnet/tools/clang-scan-deps18"
+      - "/Volumes/Projects/flutter/bin/clang-scan-deps18"
+      - "/Users/nikhil.karande/Library/Android/sdk/platform-tools/clang-scan-deps18"
+      - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64/clang-scan-deps18"
+      - "/usr/lib/aarch64-linux-android/23/bin/clang-scan-deps18"
+      - "/usr/lib/aarch64-linux-android/23/sbin/clang-scan-deps18"
+      - "/usr/lib/aarch64-linux-android/23/clang-scan-deps18"
+    found: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang-scan-deps"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64"
+      ENV{PATH}:
+        - "/Users/nikhil.karande/.codex/tmp/arg0/codex-arg0E0gnYh"
+        - "/opt/homebrew/lib/ruby/gems/4.0.0/bin"
+        - "/opt/homebrew/opt/ruby/bin"
+        - "/Users/nikhil.karande/miniconda3/bin"
+        - "/Applications/Unity/Hub/Editor/6000.0.23f1/Unity.app/Contents/MacOS"
+        - "/opt/homebrew/bin"
+        - "/opt/homebrew/sbin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/Library/Apple/usr/bin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/Volumes/Projects/flutter/bin"
+        - "/Users/nikhil.karande/Library/Android/sdk/platform-tools"
+        - "/Users/nikhil.karande/.vscode/extensions/openai.chatgpt-0.4.74-darwin-arm64/bin/macos-aarch64"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/aarch64-linux-android/23"
+      CMAKE_SYSROOT: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "/Volumes/Projects/Hindi Font System/Packages/com.unity.ugui/Runtime/HindiHarfBuzz/.build/android-arm64/CMakeFiles/CMakeScratch/TryCompile-E0lfEp"
+      binary: "/Volumes/Projects/Hindi Font System/Packages/com.unity.ugui/Runtime/HindiHarfBuzz/.build/android-arm64/CMakeFiles/CMakeScratch/TryCompile-E0lfEp"
+    cmakeVariables:
+      ANDROID_ABI: "arm64-v8a"
+      ANDROID_ARM_MODE: "thumb"
+      ANDROID_PIE: "TRUE"
+      ANDROID_PLATFORM: "android-23"
+      ANDROID_STL: "c++_static"
+      ANDROID_TOOLCHAIN: "clang"
+      CMAKE_CXX_COMPILER_TARGET: "aarch64-none-linux-android23"
+      CMAKE_C_COMPILER_TARGET: "aarch64-none-linux-android23"
+      CMAKE_C_FLAGS: "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat "
+      CMAKE_C_FLAGS_DEBUG: "-fno-limit-debug-info "
+      CMAKE_EXE_LINKER_FLAGS: "-static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments  "
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+      CMAKE_SYSROOT: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/Volumes/Projects/Hindi Font System/Packages/com.unity.ugui/Runtime/HindiHarfBuzz/.build/android-arm64/CMakeFiles/CMakeScratch/TryCompile-E0lfEp'
+        
+        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_b3c8d/fast
+        /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_b3c8d.dir/build.make CMakeFiles/cmTC_b3c8d.dir/build
+        Building C object CMakeFiles/cmTC_b3c8d.dir/CMakeCCompilerABI.c.o
+        /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang --target=aarch64-none-linux-android23 --sysroot=/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat   -fPIE   -v -MD -MT CMakeFiles/cmTC_b3c8d.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_b3c8d.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_b3c8d.dir/CMakeCCompilerABI.c.o -c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c
+        Android (12470979, +pgo, -bolt, +lto, -mlgo, based on r522817c) clang version 18.0.3 (https://android.googlesource.com/toolchain/llvm-project d8003a456d14a3deb8054cdaa529ffbf02d9b262)
+        Target: aarch64-none-linux-android23
+        Thread model: posix
+        InstalledDir: /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin
+         (in-process)
+         "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang" -cc1 -triple aarch64-none-linux-android23 -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=non-leaf -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu generic -target-feature +neon -target-feature +v8a -target-feature +fix-cortex-a53-835769 -target-abi aapcs -debug-info-kind=constructor -dwarf-version=4 -debugger-tuning=gdb "-fdebug-compilation-dir=/Volumes/Projects/Hindi Font System/Packages/com.unity.ugui/Runtime/HindiHarfBuzz/.build/android-arm64/CMakeFiles/CMakeScratch/TryCompile-E0lfEp" -v -ffunction-sections -fdata-sections "-fcoverage-compilation-dir=/Volumes/Projects/Hindi Font System/Packages/com.unity.ugui/Runtime/HindiHarfBuzz/.build/android-arm64/CMakeFiles/CMakeScratch/TryCompile-E0lfEp" -resource-dir /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib/clang/18 -dependency-file CMakeFiles/cmTC_b3c8d.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_b3c8d.dir/CMakeCCompilerABI.c.o -sys-header-deps -D ANDROID -D _FORTIFY_SOURCE=2 -isysroot /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -internal-isystem /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib/clang/18/include -internal-isystem /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/local/include -internal-externc-isystem /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/aarch64-linux-android -internal-externc-isystem /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/include -internal-externc-isystem /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include -Wformat -ferror-limit 19 -femulated-tls -stack-protector 2 -fno-signed-char -fgnuc-version=4.2.1 -target-feature +outline-atomics -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_b3c8d.dir/CMakeCCompilerABI.c.o -x c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c
+        clang -cc1 version 18.0.3 based upon LLVM 18.0.3 default target x86_64-apple-darwin25.0.0
+        ignoring nonexistent directory "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/local/include"
+        ignoring nonexistent directory "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib/clang/18/include
+         /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/aarch64-linux-android
+         /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include
+        End of search list.
+        Linking C executable cmTC_b3c8d
+        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b3c8d.dir/link.txt --verbose=1
+        Android (12470979, +pgo, -bolt, +lto, -mlgo, based on r522817c) clang version 18.0.3 (https://android.googlesource.com/toolchain/llvm-project d8003a456d14a3deb8054cdaa529ffbf02d9b262)
+        Target: aarch64-none-linux-android23
+        Thread model: posix
+        InstalledDir: /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin
+         "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/ld.lld" --sysroot=/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -EL --fix-cortex-a53-843419 -z now -z relro -z max-page-size=4096 --hash-style=gnu --eh-frame-hdr -m aarch64linux -pie -dynamic-linker /system/bin/linker64 -o cmTC_b3c8d /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android/23/crtbegin_dynamic.o -L/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib/clang/18/lib/linux/aarch64 -L/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android/23 -L/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android -L/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib --build-id=sha1 --no-rosegment --no-undefined-version --fatal-warnings --no-undefined CMakeFiles/cmTC_b3c8d.dir/CMakeCCompilerABI.c.o /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib/clang/18/lib/linux/libclang_rt.builtins-aarch64-android.a -l:libunwind.a -ldl -lc /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib/clang/18/lib/linux/libclang_rt.builtins-aarch64-android.a -l:libunwind.a -ldl /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android/23/crtend_android.o
+        /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang --target=aarch64-none-linux-android23 --sysroot=/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat   -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments   -v CMakeFiles/cmTC_b3c8d.dir/CMakeCCompilerABI.c.o -o cmTC_b3c8d
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:217 (message)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed C implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib/clang/18/include]
+          add: [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/aarch64-linux-android]
+          add: [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include]
+        end of search list found
+        collapse include dir [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib/clang/18/include] ==> [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib/clang/18/include]
+        collapse include dir [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/aarch64-linux-android] ==> [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/aarch64-linux-android]
+        collapse include dir [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include] ==> [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include]
+        implicit include dirs: [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib/clang/18/include;/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/aarch64-linux-android;/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
+        ignore line: [Change Dir: '/Volumes/Projects/Hindi Font System/Packages/com.unity.ugui/Runtime/HindiHarfBuzz/.build/android-arm64/CMakeFiles/CMakeScratch/TryCompile-E0lfEp']
+        ignore line: []
+        ignore line: [Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_b3c8d/fast]
+        ignore line: [/Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_b3c8d.dir/build.make CMakeFiles/cmTC_b3c8d.dir/build]
+        ignore line: [Building C object CMakeFiles/cmTC_b3c8d.dir/CMakeCCompilerABI.c.o]
+        ignore line: [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang --target=aarch64-none-linux-android23 --sysroot=/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat   -fPIE   -v -MD -MT CMakeFiles/cmTC_b3c8d.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_b3c8d.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_b3c8d.dir/CMakeCCompilerABI.c.o -c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c]
+        ignore line: [Android (12470979  +pgo  -bolt  +lto  -mlgo  based on r522817c) clang version 18.0.3 (https://android.googlesource.com/toolchain/llvm-project d8003a456d14a3deb8054cdaa529ffbf02d9b262)]
+        ignore line: [Target: aarch64-none-linux-android23]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin]
+        ignore line: [ (in-process)]
+        ignore line: [ "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang" -cc1 -triple aarch64-none-linux-android23 -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=non-leaf -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu generic -target-feature +neon -target-feature +v8a -target-feature +fix-cortex-a53-835769 -target-abi aapcs -debug-info-kind=constructor -dwarf-version=4 -debugger-tuning=gdb "-fdebug-compilation-dir=/Volumes/Projects/Hindi Font System/Packages/com.unity.ugui/Runtime/HindiHarfBuzz/.build/android-arm64/CMakeFiles/CMakeScratch/TryCompile-E0lfEp" -v -ffunction-sections -fdata-sections "-fcoverage-compilation-dir=/Volumes/Projects/Hindi Font System/Packages/com.unity.ugui/Runtime/HindiHarfBuzz/.build/android-arm64/CMakeFiles/CMakeScratch/TryCompile-E0lfEp" -resource-dir /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib/clang/18 -dependency-file CMakeFiles/cmTC_b3c8d.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_b3c8d.dir/CMakeCCompilerABI.c.o -sys-header-deps -D ANDROID -D _FORTIFY_SOURCE=2 -isysroot /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -internal-isystem /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib/clang/18/include -internal-isystem /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/local/include -internal-externc-isystem /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/aarch64-linux-android -internal-externc-isystem /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/include -internal-externc-isystem /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include -Wformat -ferror-limit 19 -femulated-tls -stack-protector 2 -fno-signed-char -fgnuc-version=4.2.1 -target-feature +outline-atomics -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_b3c8d.dir/CMakeCCompilerABI.c.o -x c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c]
+        ignore line: [clang -cc1 version 18.0.3 based upon LLVM 18.0.3 default target x86_64-apple-darwin25.0.0]
+        ignore line: [ignoring nonexistent directory "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/local/include"]
+        ignore line: [ignoring nonexistent directory "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib/clang/18/include]
+        ignore line: [ /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/aarch64-linux-android]
+        ignore line: [ /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include]
+        ignore line: [End of search list.]
+        ignore line: [Linking C executable cmTC_b3c8d]
+        ignore line: [/opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b3c8d.dir/link.txt --verbose=1]
+        ignore line: [Android (12470979  +pgo  -bolt  +lto  -mlgo  based on r522817c) clang version 18.0.3 (https://android.googlesource.com/toolchain/llvm-project d8003a456d14a3deb8054cdaa529ffbf02d9b262)]
+        ignore line: [Target: aarch64-none-linux-android23]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin]
+        link line: [ "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/ld.lld" --sysroot=/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -EL --fix-cortex-a53-843419 -z now -z relro -z max-page-size=4096 --hash-style=gnu --eh-frame-hdr -m aarch64linux -pie -dynamic-linker /system/bin/linker64 -o cmTC_b3c8d /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android/23/crtbegin_dynamic.o -L/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib/clang/18/lib/linux/aarch64 -L/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android/23 -L/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android -L/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib --build-id=sha1 --no-rosegment --no-undefined-version --fatal-warnings --no-undefined CMakeFiles/cmTC_b3c8d.dir/CMakeCCompilerABI.c.o /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib/clang/18/lib/linux/libclang_rt.builtins-aarch64-android.a -l:libunwind.a -ldl -lc /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib/clang/18/lib/linux/libclang_rt.builtins-aarch64-android.a -l:libunwind.a -ldl /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android/23/crtend_android.o]
+          arg [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/ld.lld] ==> ignore
+          arg [--sysroot=/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot] ==> ignore
+          arg [-EL] ==> ignore
+          arg [--fix-cortex-a53-843419] ==> ignore
+          arg [-znow] ==> ignore
+          arg [-zrelro] ==> ignore
+          arg [-zmax-page-size=4096] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [aarch64linux] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/system/bin/linker64] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_b3c8d] ==> ignore
+          arg [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android/23/crtbegin_dynamic.o] ==> obj [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android/23/crtbegin_dynamic.o]
+          arg [-L/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib/clang/18/lib/linux/aarch64] ==> dir [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib/clang/18/lib/linux/aarch64]
+          arg [-L/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android/23] ==> dir [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android/23]
+          arg [-L/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android] ==> dir [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android]
+          arg [-L/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib] ==> dir [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib]
+          arg [--build-id=sha1] ==> ignore
+          arg [--no-rosegment] ==> ignore
+          arg [--no-undefined-version] ==> ignore
+          arg [--fatal-warnings] ==> ignore
+          arg [--no-undefined] ==> ignore
+          arg [CMakeFiles/cmTC_b3c8d.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib/clang/18/lib/linux/libclang_rt.builtins-aarch64-android.a] ==> lib [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib/clang/18/lib/linux/libclang_rt.builtins-aarch64-android.a]
+          arg [-l:libunwind.a] ==> lib [-l:libunwind.a]
+          arg [-ldl] ==> lib [dl]
+          arg [-lc] ==> lib [c]
+          arg [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib/clang/18/lib/linux/libclang_rt.builtins-aarch64-android.a] ==> lib [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib/clang/18/lib/linux/libclang_rt.builtins-aarch64-android.a]
+          arg [-l:libunwind.a] ==> lib [-l:libunwind.a]
+          arg [-ldl] ==> lib [dl]
+          arg [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android/23/crtend_android.o] ==> obj [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android/23/crtend_android.o]
+        linker tool for 'C': /Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/ld.lld
+        remove lib [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib/clang/18/lib/linux/libclang_rt.builtins-aarch64-android.a]
+        remove lib [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib/clang/18/lib/linux/libclang_rt.builtins-aarch64-android.a]
+        collapse library dir [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib/clang/18/lib/linux/aarch64] ==> [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib/clang/18/lib/linux/aarch64]
+        collapse library dir [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android/23] ==> [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android/23]
+        collapse library dir [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android] ==> [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android]
+        collapse library dir [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib] ==> [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib]
+        implicit libs: [-l:libunwind.a;dl;c;-l:libunwind.a;dl]
+        implicit objs: [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android/23/crtbegin_dynamic.o;/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android/23/crtend_android.o]
+        implicit dirs: [/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib/clang/18/lib/linux/aarch64;/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android/23;/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android;/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/homebrew/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "/opt/homebrew/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the C compiler's linker: "/Applications/Unity/Hub/Editor/6000.3.8f1/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/ld.lld" "-v"
+      LLD 18.0.3 (compatible with GNU linkers)
+...

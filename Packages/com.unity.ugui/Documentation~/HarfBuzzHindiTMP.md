@@ -1,0 +1,93 @@
+# IndicFlow - TMP Text Shaping Engine
+
+IndicFlow adds HarfBuzz-based shaping support for Hindi / Devanagari in TMP UGUI.
+
+## Component
+
+Use:
+
+- `TMPro.HarfBuzzTextMeshProUGUI`
+
+It is available in Add Component as:
+
+- `UI (Canvas) > HarfBuzz TextMeshPro - Text (UI)`
+
+It is also available in Create menu as:
+
+- `GameObject > UI (Canvas) > Text - HarfBuzzTextMeshPro`
+
+## Why this package
+
+Default TMP shaping may not correctly handle all Devanagari features in some cases.  
+This component shapes text using HarfBuzz and renders using TMP atlas/material.
+
+## Supported shaping targets
+
+- Matras (vowel signs)
+- Conjuncts / ligatures
+- Anusvar / chandrabindu
+- Nuqta characters
+
+## Setup
+
+1. Create a UI text object using `HarfBuzzTextMeshProUGUI`.
+2. Assign a TMP font asset.
+3. Assign HarfBuzz font source:
+   - `m_HarfBuzzFontBytes` (`.ttf.bytes`) recommended, or
+   - `m_HarfBuzzFontPath`
+4. Set language (default `hi`).
+
+## No-Join Control (Full or Selective)
+
+To control conjunct joining:
+
+1. Open `Tools > TextMeshPro > HarfBuzz Hindi > No-Join Word Settings`.
+2. Create/edit `Assets/Resources/HarfBuzzHindiNoJoinSettings.asset`.
+3. Full no-join: add words in `No-Join Words`.
+4. Selective no-join: add `Selective Disjoin Rules` entries:
+   - `Word`: exact word match
+   - `Disjoin Patterns`: only those conjunct patterns will be broken
+5. For bulk full-word setup, paste newline/comma-separated words into `Bulk Add` and click `Add Pasted Words`.
+6. Keep `Disable Conjunct Joining For Configured Words` enabled on `HarfBuzzTextMeshProUGUI`.
+
+How it works:
+- Full no-join words: inserts `ZWNJ` after every halant (`\u094D`) in the word.
+- Selective rules: inserts `ZWNJ` only for the specified conjunct patterns in that word.
+- This keeps the rest of your Hindi text fully shaped as normal.
+
+## Native plugin
+
+The component uses native library `HindiHarfBuzz`.
+
+Included in this package:
+
+- macOS: `Runtime/Plugins/macOS/libHindiHarfBuzz.dylib`
+- Android/iOS output folders and build scripts:
+  - `Runtime/HindiHarfBuzz/build_android.sh`
+  - `Runtime/HindiHarfBuzz/build_ios.sh`
+
+## Mobile build notes
+
+For Android/iOS you need HarfBuzz static libs and then run the build scripts in:
+
+- `Runtime/HindiHarfBuzz/README_Mobile.md`
+
+## Git URL install
+
+Install with:
+
+```json
+{
+  "dependencies": {
+    "com.unity.ugui": "https://github.com/NikhilCreaxt/indicflow.git?path=/Packages/com.unity.ugui#v2.0.0-hb.19"
+  }
+}
+```
+
+Use this if you want Package Manager `Update` to follow latest stable branch:
+
+`https://github.com/NikhilCreaxt/indicflow.git?path=/Packages/com.unity.ugui`
+
+Or in Package Manager, add package from git URL:
+
+`https://github.com/NikhilCreaxt/indicflow.git?path=/Packages/com.unity.ugui#v2.0.0-hb.19`

@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/Volumes/Projects/Hindi Font System/Packages/com.unity.ugui/Runtime/HindiHarfBuzz/.build/android-arm64/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
