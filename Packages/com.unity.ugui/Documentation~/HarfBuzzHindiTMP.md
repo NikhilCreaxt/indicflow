@@ -77,7 +77,7 @@ Install with:
 ```json
 {
   "dependencies": {
-    "com.unity.ugui": "https://github.com/NikhilCreaxt/indicflow.git?path=/Packages/com.unity.ugui#v2.0.0-hb.25"
+    "com.unity.ugui": "https://github.com/NikhilCreaxt/indicflow.git?path=/Packages/com.unity.ugui#v2.0.0-hb.26"
   }
 }
 ```
@@ -88,4 +88,4 @@ Use this if you want Package Manager `Update` to follow latest stable branch:
 
 Or in Package Manager, add package from git URL:
 
-`https://github.com/NikhilCreaxt/indicflow.git?path=/Packages/com.unity.ugui#v2.0.0-hb.25`
+`https://github.com/NikhilCreaxt/indicflow.git?path=/Packages/com.unity.ugui#v2.0.0-hb.26`

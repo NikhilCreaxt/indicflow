@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.0.0-hb.26] - 2026-02-18
+- Fixed bundled default TMP font asset source-font wiring for fresh installs.
+- Added bundled runtime `.ttf` asset under `Runtime/Resources/IndicFlow` and linked `IndicFlow_Default_Devanagari_SDF` to it.
+- Restored proper dynamic glyph population for auto-assigned bundled font setup.
+
 ## [2.0.0-hb.25] - 2026-02-18
 - Added zero-setup component initialization: when `HarfBuzzTextMeshProUGUI` is created, bundled IndicFlow TMP font asset and bundled `.ttf.bytes` are auto-assigned.
 - Kept runtime enforcement of bundled IndicFlow defaults so player builds work without manual font-path or bytes setup.
