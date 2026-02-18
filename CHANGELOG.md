@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.0.0-hb.20] - 2026-02-18
+- Fixed `TMP_LinkInfo` mapping in `TMPro.HarfBuzzTextMeshProUGUI` to use character indices (TMP-compatible) instead of glyph indices.
+- Restored expected `textInfo.linkInfo` behavior for shaped Hindi text, including `GetLinkText()` and downstream link-hit / word-index workflows.
+
 ## [2.0.0-hb.19] - 2026-02-17
 - Implemented **No-Join Word Settings** for precise control over Hindi conjunct rendering.
 - Added a configurable settings asset (`HarfBuzzHindiNoJoinSettings`) to define words that should not auto-join.
