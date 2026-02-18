@@ -11,6 +11,7 @@ This package includes:
 - `TMPro.HarfBuzzTextMeshProUGUI`
 - HarfBuzz native bridge integration for Devanagari shaping
 - Bundled fallback `.ttf.bytes` for runtime shaping (no sample import required)
+- Bundled fallback TMP font asset for auto-assignment when font is not set
 
 Documentation:
 

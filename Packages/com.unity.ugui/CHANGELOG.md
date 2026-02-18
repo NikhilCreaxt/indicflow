@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.0.0-hb.23] - 2026-02-18
+- Added bundled fallback TMP font asset to package runtime resources.
+- `TMPro.HarfBuzzTextMeshProUGUI` now auto-assigns bundled fallback TMP font asset when no font asset is set on the component.
+- Combined with bundled fallback `.ttf.bytes`, fresh git installs now work without importing Samples for required font assets.
+
 ## [2.0.0-hb.22] - 2026-02-18
 - Fixed bundled fallback font resource loading by resolving `.ttf.bytes` via the correct Resources path (`...ttf`) in player builds.
 - Added resilient fallback lookup for both legacy and corrected resource keys.

@@ -55,6 +55,11 @@ namespace TMPro
             "IndicFlow/NotoSansDevanagari-VariableFont_wdth,wght.ttf",
             "IndicFlow/NotoSansDevanagari-VariableFont_wdth,wght"
         };
+        private static readonly string[] k_DefaultBundledFontAssetResourcePaths =
+        {
+            "IndicFlow/IndicFlow_Default_Devanagari_SDF",
+            "IndicFlow/NotoSansDevanagari-VariableFont_wdth,wght SDF"
+        };
         private const char k_DevanagariVirama = '\u094D';
         private const char k_ZeroWidthNonJoiner = '\u200C';
         private const char k_ZeroWidthJoiner = '\u200D';
@@ -79,6 +84,7 @@ namespace TMPro
         private bool m_LoggedInitSuccess;
         private bool m_LoggedShapingFallbackWarning;
         private bool m_LoggedBundledFontFallback;
+        private bool m_LoggedBundledFontAssetFallback;
 
         private readonly List<LineLayout> m_Lines = new List<LineLayout>();
         private readonly Dictionary<string, LineLayout> m_TokenShapeCache = new Dictionary<string, LineLayout>();
@@ -114,6 +120,8 @@ namespace TMPro
 
         private static TextAsset s_BundledFallbackFontBytes;
         private static bool s_BundledFallbackFontLoaded;
+        private static TMP_FontAsset s_BundledFallbackFontAsset;
+        private static bool s_BundledFallbackFontAssetLoaded;
 
         protected override void OnDisable()
         {
@@ -134,6 +142,8 @@ namespace TMPro
                 base.GenerateTextMesh();
                 return;
             }
+
+            EnsureBundledFallbackFontAssetAssigned();
 
             if (font == null || string.IsNullOrEmpty(text))
             {
@@ -2325,6 +2335,44 @@ namespace TMPro
 
             s_BundledFallbackFontLoaded = true;
             return s_BundledFallbackFontBytes;
+        }
+
+        private TMP_FontAsset GetBundledFallbackFontAsset()
+        {
+            if (s_BundledFallbackFontAssetLoaded)
+                return s_BundledFallbackFontAsset;
+
+            for (int i = 0; i < k_DefaultBundledFontAssetResourcePaths.Length; i++)
+            {
+                s_BundledFallbackFontAsset = Resources.Load<TMP_FontAsset>(k_DefaultBundledFontAssetResourcePaths[i]);
+                if (s_BundledFallbackFontAsset != null)
+                    break;
+            }
+
+            s_BundledFallbackFontAssetLoaded = true;
+            return s_BundledFallbackFontAsset;
+        }
+
+        private void EnsureBundledFallbackFontAssetAssigned()
+        {
+            if (font != null)
+                return;
+
+            TMP_FontAsset bundledFontAsset = GetBundledFallbackFontAsset();
+            if (bundledFontAsset == null)
+                return;
+
+            font = bundledFontAsset;
+            if (fontSharedMaterial == null && bundledFontAsset.material != null)
+                fontSharedMaterial = bundledFontAsset.material;
+
+            if (!m_LoggedBundledFontAssetFallback)
+            {
+                Debug.Log(
+                    "TMP font asset was not assigned. Using bundled fallback TMP font asset from package Runtime/Resources.",
+                    this);
+                m_LoggedBundledFontAssetFallback = true;
+            }
         }
 
         private static bool TryCacheFontBytesToTemp(TextAsset fontBytes, string cachePrefix, out string cachedPath)
