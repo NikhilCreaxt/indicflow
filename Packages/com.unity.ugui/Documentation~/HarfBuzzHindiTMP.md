@@ -32,12 +32,9 @@ This component shapes text using HarfBuzz and renders using TMP atlas/material.
 
 1. Create a UI text object using `HarfBuzzTextMeshProUGUI`.
 2. TMP font asset:
-   - If you assign one, that font is used.
-   - If not assigned, package bundled fallback TMP font asset from `Runtime/Resources/IndicFlow` is used automatically.
+   - Package bundled TMP font asset from `Runtime/Resources/IndicFlow` is used automatically.
 3. HarfBuzz font source:
-   - If you assign `m_HarfBuzzFontBytes` (`.ttf.bytes`), that file is used.
-   - Else if you assign `m_HarfBuzzFontPath`, that path is used.
-   - Else package bundled fallback bytes from `Runtime/Resources/IndicFlow` are used automatically (no sample import required).
+   - Package bundled fallback bytes from `Runtime/Resources/IndicFlow` are used automatically (no sample import required).
 4. Set language (default `hi`).
 
 ## No-Join Control (Full or Selective)
@@ -77,7 +74,7 @@ Install with:
 ```json
 {
   "dependencies": {
-    "com.unity.ugui": "https://github.com/NikhilCreaxt/indicflow.git?path=/Packages/com.unity.ugui#v2.0.0-hb.23"
+    "com.unity.ugui": "https://github.com/NikhilCreaxt/indicflow.git?path=/Packages/com.unity.ugui#v2.0.0-hb.24"
   }
 }
 ```
@@ -88,4 +85,4 @@ Use this if you want Package Manager `Update` to follow latest stable branch:
 
 Or in Package Manager, add package from git URL:
 
-`https://github.com/NikhilCreaxt/indicflow.git?path=/Packages/com.unity.ugui#v2.0.0-hb.23`
+`https://github.com/NikhilCreaxt/indicflow.git?path=/Packages/com.unity.ugui#v2.0.0-hb.24`

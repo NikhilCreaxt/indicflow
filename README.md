@@ -11,7 +11,7 @@ Add this to `Packages/manifest.json`:
 ```json
 {
   "dependencies": {
-    "com.unity.ugui": "https://github.com/NikhilCreaxt/indicflow.git?path=/Packages/com.unity.ugui#v2.0.0-hb.23"
+    "com.unity.ugui": "https://github.com/NikhilCreaxt/indicflow.git?path=/Packages/com.unity.ugui#v2.0.0-hb.24"
   }
 }
 ```
@@ -49,7 +49,7 @@ Use No-Join rules when specific Hindi words (or specific conjunct patterns insid
 ## Common Errors
 
 ### `CS0136 ... packagePath ...`
-- Use `#v2.0.0-hb.23` or newer.
+- Use `#v2.0.0-hb.24` or newer.
 - Close Unity, delete `Library/PackageCache/com.unity.ugui@*`, reopen.
 
 ### `HarfBuzz native plugin missing ... HindiHarfBuzz not found`
@@ -58,5 +58,5 @@ Use No-Join rules when specific Hindi words (or specific conjunct patterns insid
 
 ### `HarfBuzz font file not found`
 - The package includes bundled fallback `.ttf.bytes` and bundled fallback TMP font asset in `Runtime/Resources/IndicFlow`.
+- These bundled defaults are auto-used by `HarfBuzzTextMeshProUGUI` for zero-setup usage.
 - Sample import is not required for basic use.
-- For best visual match with your project fonts, assign your own TMP font asset + `.ttf.bytes`.

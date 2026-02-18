@@ -70,6 +70,7 @@ namespace TMPro
         [SerializeField] private string m_HarfBuzzLanguage = "hi";
         [SerializeField] private bool m_ForceDevanagariScript = true;
         [SerializeField] private bool m_FallbackToDefaultTMP = true;
+        [SerializeField] private bool m_UseBundledIndicFlowDefaults = true;
         [SerializeField] private bool m_EnableSimpleWordWrap = true;
         [SerializeField] private bool m_DisableConjunctJoiningForConfiguredWords = true;
         [SerializeField] private bool m_UseGlobalNoJoinWordSettings = true;
@@ -143,7 +144,7 @@ namespace TMPro
                 return;
             }
 
-            EnsureBundledFallbackFontAssetAssigned();
+            EnsureBundledFallbackFontAssetAssigned(m_UseBundledIndicFlowDefaults);
 
             if (font == null || string.IsNullOrEmpty(text))
             {
@@ -2206,8 +2207,11 @@ namespace TMPro
                     string reason = string.IsNullOrWhiteSpace(fontPath)
                         ? "no font path could be resolved"
                         : $"font file not found at '{fontPath}'";
+                    string hint = m_UseBundledIndicFlowDefaults
+                        ? "Bundled IndicFlow font bytes could not be resolved from Runtime/Resources/IndicFlow."
+                        : "Assign 'Harf Buzz Font Bytes' or verify bundled fallback bytes exist in Runtime/Resources/IndicFlow.";
                     Debug.LogWarning(
-                        $"HarfBuzz font unavailable ({reason}). Assign 'Harf Buzz Font Bytes' or verify bundled fallback bytes exist in Runtime/Resources/IndicFlow.",
+                        $"HarfBuzz font unavailable ({reason}). {hint}",
                         this);
                     m_LoggedMissingFontWarning = true;
                 }
@@ -2273,6 +2277,24 @@ namespace TMPro
 
         private string ResolveFontPath()
         {
+            if (m_UseBundledIndicFlowDefaults)
+            {
+                TextAsset bundledDefaultFont = GetBundledFallbackFontBytes();
+                if (TryCacheFontBytesToTemp(bundledDefaultFont, "tmp_hb_bundled_font", out string forcedBundledFontPath))
+                {
+                    if (!m_LoggedBundledFontFallback)
+                    {
+                        Debug.Log(
+                            "Using bundled IndicFlow HarfBuzz font bytes from package Runtime/Resources.",
+                            this);
+                        m_LoggedBundledFontFallback = true;
+                    }
+
+                    m_CachedEmbeddedFontPath = forcedBundledFontPath;
+                    return forcedBundledFontPath;
+                }
+            }
+
             if (TryCacheFontBytesToTemp(m_HarfBuzzFontBytes, "tmp_hb_font", out string configuredFontPath))
             {
                 m_CachedEmbeddedFontPath = configuredFontPath;
@@ -2353,24 +2375,26 @@ namespace TMPro
             return s_BundledFallbackFontAsset;
         }
 
-        private void EnsureBundledFallbackFontAssetAssigned()
+        private void EnsureBundledFallbackFontAssetAssigned(bool forceAssign)
         {
-            if (font != null)
-                return;
-
             TMP_FontAsset bundledFontAsset = GetBundledFallbackFontAsset();
             if (bundledFontAsset == null)
                 return;
 
+            if (!forceAssign && font != null)
+                return;
+
+            bool replacedFontAsset = font != bundledFontAsset;
             font = bundledFontAsset;
-            if (fontSharedMaterial == null && bundledFontAsset.material != null)
+            if (bundledFontAsset.material != null && (replacedFontAsset || fontSharedMaterial == null))
                 fontSharedMaterial = bundledFontAsset.material;
 
-            if (!m_LoggedBundledFontAssetFallback)
+            if (!m_LoggedBundledFontAssetFallback && replacedFontAsset)
             {
-                Debug.Log(
-                    "TMP font asset was not assigned. Using bundled fallback TMP font asset from package Runtime/Resources.",
-                    this);
+                string message = forceAssign
+                    ? "Using bundled IndicFlow TMP font asset from package Runtime/Resources."
+                    : "TMP font asset was not assigned. Using bundled fallback TMP font asset from package Runtime/Resources.";
+                Debug.Log(message, this);
                 m_LoggedBundledFontAssetFallback = true;
             }
         }

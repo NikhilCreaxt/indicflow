@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.0.0-hb.24] - 2026-02-18
+- Enforced bundled IndicFlow defaults in `TMPro.HarfBuzzTextMeshProUGUI` for zero-setup usage.
+- Component now prioritizes package bundled HarfBuzz font bytes and bundled TMP font asset automatically.
+- Removed TMP font asset inspector warning by matching the bundled asset object name to file name.
+
 ## [2.0.0-hb.23] - 2026-02-18
 - Added bundled fallback TMP font asset to package runtime resources.
 - `TMPro.HarfBuzzTextMeshProUGUI` now auto-assigns bundled fallback TMP font asset when no font asset is set on the component.
