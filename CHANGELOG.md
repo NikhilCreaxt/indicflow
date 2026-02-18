@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.0.0-hb.25] - 2026-02-18
+- Added zero-setup component initialization: when `HarfBuzzTextMeshProUGUI` is created, bundled IndicFlow TMP font asset and bundled `.ttf.bytes` are auto-assigned.
+- Kept runtime enforcement of bundled IndicFlow defaults so player builds work without manual font-path or bytes setup.
+- Ensured plugin behavior is consistent for new developers: install package and use component directly.
+
 ## [2.0.0-hb.24] - 2026-02-18
 - Enforced bundled IndicFlow defaults in `TMPro.HarfBuzzTextMeshProUGUI` for zero-setup usage.
 - Component now prioritizes package bundled HarfBuzz font bytes and bundled TMP font asset automatically.

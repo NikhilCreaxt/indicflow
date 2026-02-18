@@ -37,6 +37,9 @@ This component shapes text using HarfBuzz and renders using TMP atlas/material.
    - Package bundled fallback bytes from `Runtime/Resources/IndicFlow` are used automatically (no sample import required).
 4. Set language (default `hi`).
 
+Note:
+- On component creation (`Add Component` / create UI text), bundled IndicFlow defaults are auto-assigned.
+
 ## No-Join Control (Full or Selective)
 
 To control conjunct joining:
@@ -74,7 +77,7 @@ Install with:
 ```json
 {
   "dependencies": {
-    "com.unity.ugui": "https://github.com/NikhilCreaxt/indicflow.git?path=/Packages/com.unity.ugui#v2.0.0-hb.24"
+    "com.unity.ugui": "https://github.com/NikhilCreaxt/indicflow.git?path=/Packages/com.unity.ugui#v2.0.0-hb.25"
   }
 }
 ```
@@ -85,4 +88,4 @@ Use this if you want Package Manager `Update` to follow latest stable branch:
 
 Or in Package Manager, add package from git URL:
 
-`https://github.com/NikhilCreaxt/indicflow.git?path=/Packages/com.unity.ugui#v2.0.0-hb.24`
+`https://github.com/NikhilCreaxt/indicflow.git?path=/Packages/com.unity.ugui#v2.0.0-hb.25`

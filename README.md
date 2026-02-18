@@ -11,7 +11,7 @@ Add this to `Packages/manifest.json`:
 ```json
 {
   "dependencies": {
-    "com.unity.ugui": "https://github.com/NikhilCreaxt/indicflow.git?path=/Packages/com.unity.ugui#v2.0.0-hb.24"
+    "com.unity.ugui": "https://github.com/NikhilCreaxt/indicflow.git?path=/Packages/com.unity.ugui#v2.0.0-hb.25"
   }
 }
 ```
@@ -49,7 +49,7 @@ Use No-Join rules when specific Hindi words (or specific conjunct patterns insid
 ## Common Errors
 
 ### `CS0136 ... packagePath ...`
-- Use `#v2.0.0-hb.24` or newer.
+- Use `#v2.0.0-hb.25` or newer.
 - Close Unity, delete `Library/PackageCache/com.unity.ugui@*`, reopen.
 
 ### `HarfBuzz native plugin missing ... HindiHarfBuzz not found`

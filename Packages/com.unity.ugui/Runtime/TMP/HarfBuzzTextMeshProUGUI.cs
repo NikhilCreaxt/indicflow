@@ -124,6 +124,24 @@ namespace TMPro
         private static TMP_FontAsset s_BundledFallbackFontAsset;
         private static bool s_BundledFallbackFontAssetLoaded;
 
+        private void Reset()
+        {
+            if (!m_UseBundledIndicFlowDefaults)
+                return;
+
+            TextAsset bundledFontBytes = GetBundledFallbackFontBytes();
+            if (bundledFontBytes != null)
+                m_HarfBuzzFontBytes = bundledFontBytes;
+
+            TMP_FontAsset bundledFontAsset = GetBundledFallbackFontAsset();
+            if (bundledFontAsset == null)
+                return;
+
+            font = bundledFontAsset;
+            if (bundledFontAsset.material != null)
+                fontSharedMaterial = bundledFontAsset.material;
+        }
+
         protected override void OnDisable()
         {
             ReleaseFontHandle();
@@ -142,6 +160,13 @@ namespace TMPro
             {
                 base.GenerateTextMesh();
                 return;
+            }
+
+            if (m_UseBundledIndicFlowDefaults)
+            {
+                TextAsset bundledFontBytes = GetBundledFallbackFontBytes();
+                if (bundledFontBytes != null)
+                    m_HarfBuzzFontBytes = bundledFontBytes;
             }
 
             EnsureBundledFallbackFontAssetAssigned(m_UseBundledIndicFlowDefaults);
