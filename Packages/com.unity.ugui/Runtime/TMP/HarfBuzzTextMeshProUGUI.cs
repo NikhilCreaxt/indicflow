@@ -50,7 +50,11 @@ namespace TMPro
         }
 
         private static readonly uint k_DevanagariScriptTag = TMP_HarfBuzzNative.MakeTag("deva");
-        private const string k_DefaultBundledFontResourcePath = "IndicFlow/NotoSansDevanagari-VariableFont_wdth,wght";
+        private static readonly string[] k_DefaultBundledFontResourcePaths =
+        {
+            "IndicFlow/NotoSansDevanagari-VariableFont_wdth,wght.ttf",
+            "IndicFlow/NotoSansDevanagari-VariableFont_wdth,wght"
+        };
         private const char k_DevanagariVirama = '\u094D';
         private const char k_ZeroWidthNonJoiner = '\u200C';
         private const char k_ZeroWidthJoiner = '\u200D';
@@ -2312,7 +2316,13 @@ namespace TMPro
             if (s_BundledFallbackFontLoaded)
                 return s_BundledFallbackFontBytes;
 
-            s_BundledFallbackFontBytes = Resources.Load<TextAsset>(k_DefaultBundledFontResourcePath);
+            for (int i = 0; i < k_DefaultBundledFontResourcePaths.Length; i++)
+            {
+                s_BundledFallbackFontBytes = Resources.Load<TextAsset>(k_DefaultBundledFontResourcePaths[i]);
+                if (s_BundledFallbackFontBytes != null)
+                    break;
+            }
+
             s_BundledFallbackFontLoaded = true;
             return s_BundledFallbackFontBytes;
         }

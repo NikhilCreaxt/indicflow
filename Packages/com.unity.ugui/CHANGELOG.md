@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.0.0-hb.22] - 2026-02-18
+- Fixed bundled fallback font resource loading by resolving `.ttf.bytes` via the correct Resources path (`...ttf`) in player builds.
+- Added resilient fallback lookup for both legacy and corrected resource keys.
+
 ## [2.0.0-hb.21] - 2026-02-18
 - Added bundled fallback HarfBuzz font bytes under `Runtime/Resources/IndicFlow`, so fresh git installs no longer depend on importing Samples for mobile shaping.
 - Updated `TMPro.HarfBuzzTextMeshProUGUI` to automatically use bundled fallback bytes when no explicit `Harf Buzz Font Bytes` or path is configured.
