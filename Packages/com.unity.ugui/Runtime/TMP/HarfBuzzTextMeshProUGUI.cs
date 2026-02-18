@@ -50,6 +50,7 @@ namespace TMPro
         }
 
         private static readonly uint k_DevanagariScriptTag = TMP_HarfBuzzNative.MakeTag("deva");
+        private const string k_DefaultBundledFontResourcePath = "IndicFlow/NotoSansDevanagari-VariableFont_wdth,wght";
         private const char k_DevanagariVirama = '\u094D';
         private const char k_ZeroWidthNonJoiner = '\u200C';
         private const char k_ZeroWidthJoiner = '\u200D';
@@ -73,6 +74,7 @@ namespace TMPro
         private bool m_LoggedInitFailure;
         private bool m_LoggedInitSuccess;
         private bool m_LoggedShapingFallbackWarning;
+        private bool m_LoggedBundledFontFallback;
 
         private readonly List<LineLayout> m_Lines = new List<LineLayout>();
         private readonly Dictionary<string, LineLayout> m_TokenShapeCache = new Dictionary<string, LineLayout>();
@@ -105,6 +107,9 @@ namespace TMPro
         private readonly List<Vector2> m_Uvs2 = new List<Vector2>();
         private readonly List<Color32> m_Colors32 = new List<Color32>();
         private readonly List<int> m_Triangles = new List<int>();
+
+        private static TextAsset s_BundledFallbackFontBytes;
+        private static bool s_BundledFallbackFontLoaded;
 
         protected override void OnDisable()
         {
@@ -2188,7 +2193,7 @@ namespace TMPro
                         ? "no font path could be resolved"
                         : $"font file not found at '{fontPath}'";
                     Debug.LogWarning(
-                        $"HarfBuzz font unavailable ({reason}). Assign 'Harf Buzz Font Bytes' for player builds (Android/iOS).",
+                        $"HarfBuzz font unavailable ({reason}). Assign 'Harf Buzz Font Bytes' or verify bundled fallback bytes exist in Runtime/Resources/IndicFlow.",
                         this);
                     m_LoggedMissingFontWarning = true;
                 }
@@ -2254,16 +2259,25 @@ namespace TMPro
 
         private string ResolveFontPath()
         {
-            if (m_HarfBuzzFontBytes != null && m_HarfBuzzFontBytes.bytes != null && m_HarfBuzzFontBytes.bytes.Length > 0)
+            if (TryCacheFontBytesToTemp(m_HarfBuzzFontBytes, "tmp_hb_font", out string configuredFontPath))
             {
-                string fileName = $"tmp_hb_font_{m_HarfBuzzFontBytes.GetInstanceID()}_{m_HarfBuzzFontBytes.bytes.Length}.ttf";
-                string targetPath = Path.Combine(Application.temporaryCachePath, fileName);
+                m_CachedEmbeddedFontPath = configuredFontPath;
+                return configuredFontPath;
+            }
 
-                if (!File.Exists(targetPath) || new FileInfo(targetPath).Length != m_HarfBuzzFontBytes.bytes.Length)
-                    File.WriteAllBytes(targetPath, m_HarfBuzzFontBytes.bytes);
+            TextAsset bundledFallbackFont = GetBundledFallbackFontBytes();
+            if (TryCacheFontBytesToTemp(bundledFallbackFont, "tmp_hb_bundled_font", out string bundledFontPath))
+            {
+                if (!m_LoggedBundledFontFallback && m_HarfBuzzFontBytes == null && string.IsNullOrWhiteSpace(m_HarfBuzzFontPath))
+                {
+                    Debug.Log(
+                        "HarfBuzz font bytes were not assigned. Using bundled fallback font bytes from package Runtime/Resources.",
+                        this);
+                    m_LoggedBundledFontFallback = true;
+                }
 
-                m_CachedEmbeddedFontPath = targetPath;
-                return targetPath;
+                m_CachedEmbeddedFontPath = bundledFontPath;
+                return bundledFontPath;
             }
 
             if (!string.IsNullOrWhiteSpace(m_HarfBuzzFontPath))
@@ -2291,6 +2305,33 @@ namespace TMPro
 #endif
 
             return m_CachedEmbeddedFontPath;
+        }
+
+        private static TextAsset GetBundledFallbackFontBytes()
+        {
+            if (s_BundledFallbackFontLoaded)
+                return s_BundledFallbackFontBytes;
+
+            s_BundledFallbackFontBytes = Resources.Load<TextAsset>(k_DefaultBundledFontResourcePath);
+            s_BundledFallbackFontLoaded = true;
+            return s_BundledFallbackFontBytes;
+        }
+
+        private static bool TryCacheFontBytesToTemp(TextAsset fontBytes, string cachePrefix, out string cachedPath)
+        {
+            cachedPath = null;
+
+            if (fontBytes == null || fontBytes.bytes == null || fontBytes.bytes.Length == 0)
+                return false;
+
+            string fileName = $"{cachePrefix}_{fontBytes.GetInstanceID()}_{fontBytes.bytes.Length}.ttf";
+            string targetPath = Path.Combine(Application.temporaryCachePath, fileName);
+
+            if (!File.Exists(targetPath) || new FileInfo(targetPath).Length != fontBytes.bytes.Length)
+                File.WriteAllBytes(targetPath, fontBytes.bytes);
+
+            cachedPath = targetPath;
+            return true;
         }
 
         private void ReleaseFontHandle()

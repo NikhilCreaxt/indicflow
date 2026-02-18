@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.0.0-hb.21] - 2026-02-18
+- Added bundled fallback HarfBuzz font bytes under `Runtime/Resources/IndicFlow`, so fresh git installs no longer depend on importing Samples for mobile shaping.
+- Updated `TMPro.HarfBuzzTextMeshProUGUI` to automatically use bundled fallback bytes when no explicit `Harf Buzz Font Bytes` or path is configured.
+- Clarified package docs: prebuilt native plugins are already shipped under `Runtime/Plugins` for Android/iOS/macOS, and build scripts are optional for rebuilding binaries.
+
 ## [2.0.0-hb.20] - 2026-02-18
 - Fixed `TMP_LinkInfo` mapping in `TMPro.HarfBuzzTextMeshProUGUI` to use character indices (TMP-compatible) instead of glyph indices.
 - Restored expected `textInfo.linkInfo` behavior for shaped Hindi text, including `GetLinkText()` and downstream link-hit / word-index workflows.

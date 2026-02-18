@@ -1,7 +1,7 @@
 {
   "name": "com.unity.ugui",
   "displayName": "IndicFlow - TMP Text Shaping Engine",
-  "version": "2.0.0-hb.20",
+  "version": "2.0.0-hb.21",
   "unity": "2019.2",
   "keywords": [
     "indicflow",
@@ -23,7 +23,7 @@
   "samples": [
     {
       "displayName": "Noto Sans Devanagari Sample Assets",
-      "description": "Sample Devanagari font assets, including .ttf.bytes for HarfBuzz font input.",
+      "description": "Optional sample Devanagari font assets and SDF resources for quick testing.",
       "path": "Samples~/Noto_Sans_Devanagari"
     }
   ]

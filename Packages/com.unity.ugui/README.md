@@ -10,6 +10,7 @@ This package includes:
 
 - `TMPro.HarfBuzzTextMeshProUGUI`
 - HarfBuzz native bridge integration for Devanagari shaping
+- Bundled fallback `.ttf.bytes` for runtime shaping (no sample import required)
 
 Documentation:
 

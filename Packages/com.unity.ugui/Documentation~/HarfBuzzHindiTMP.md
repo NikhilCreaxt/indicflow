@@ -32,9 +32,10 @@ This component shapes text using HarfBuzz and renders using TMP atlas/material.
 
 1. Create a UI text object using `HarfBuzzTextMeshProUGUI`.
 2. Assign a TMP font asset.
-3. Assign HarfBuzz font source:
-   - `m_HarfBuzzFontBytes` (`.ttf.bytes`) recommended, or
-   - `m_HarfBuzzFontPath`
+3. HarfBuzz font source:
+   - If you assign `m_HarfBuzzFontBytes` (`.ttf.bytes`), that file is used.
+   - Else if you assign `m_HarfBuzzFontPath`, that path is used.
+   - Else package bundled fallback bytes from `Runtime/Resources/IndicFlow` are used automatically (no sample import required).
 4. Set language (default `hi`).
 
 ## No-Join Control (Full or Selective)
@@ -59,18 +60,13 @@ How it works:
 
 The component uses native library `HindiHarfBuzz`.
 
-Included in this package:
+Prebuilt native plugins are included in this package:
 
 - macOS: `Runtime/Plugins/macOS/libHindiHarfBuzz.dylib`
-- Android/iOS output folders and build scripts:
-  - `Runtime/HindiHarfBuzz/build_android.sh`
-  - `Runtime/HindiHarfBuzz/build_ios.sh`
+- Android: `Runtime/Plugins/Android/arm64-v8a/libHindiHarfBuzz.so`
+- iOS: `Runtime/Plugins/iOS/HindiHarfBuzz.xcframework`
 
-## Mobile build notes
-
-For Android/iOS you need HarfBuzz static libs and then run the build scripts in:
-
-- `Runtime/HindiHarfBuzz/README_Mobile.md`
+Build scripts in `Runtime/HindiHarfBuzz` are only for rebuilding native binaries, not required for normal package use.
 
 ## Git URL install
 
@@ -79,7 +75,7 @@ Install with:
 ```json
 {
   "dependencies": {
-    "com.unity.ugui": "https://github.com/NikhilCreaxt/indicflow.git?path=/Packages/com.unity.ugui#v2.0.0-hb.19"
+    "com.unity.ugui": "https://github.com/NikhilCreaxt/indicflow.git?path=/Packages/com.unity.ugui#v2.0.0-hb.21"
   }
 }
 ```
@@ -90,4 +86,4 @@ Use this if you want Package Manager `Update` to follow latest stable branch:
 
 Or in Package Manager, add package from git URL:
 
-`https://github.com/NikhilCreaxt/indicflow.git?path=/Packages/com.unity.ugui#v2.0.0-hb.19`
+`https://github.com/NikhilCreaxt/indicflow.git?path=/Packages/com.unity.ugui#v2.0.0-hb.21`
