@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.0.0-hb.27] - 2026-03-26
+- Updated the Android HarfBuzz bridge build to emit 16 KB page-size compatible `libHindiHarfBuzz.so`.
+- Enabled Android flexible page-size support during CMake configure for rebuilds.
+- Documented 16 KB verification for the packaged Android native plugin.
+
 ## [2.0.0-hb.26] - 2026-02-18
 - Fixed bundled default TMP font asset source-font wiring for fresh installs.
 - Added bundled runtime `.ttf` asset under `Runtime/Resources/IndicFlow` and linked `IndicFlow_Default_Devanagari_SDF` to it.

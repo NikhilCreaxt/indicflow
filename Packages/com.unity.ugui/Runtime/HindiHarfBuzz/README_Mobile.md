@@ -10,6 +10,7 @@ This folder contains build scripts for Android and iOS native bridge libraries.
 ## Android (arm64-v8a)
 
 1. Set `ANDROID_NDK_HOME`.
+   - Use Android NDK `r28+` when possible.
 2. Place HarfBuzz static files:
    - `Packages/com.unity.ugui/Runtime/HindiHarfBuzz/third_party~/harfbuzz/android/arm64-v8a/include/harfbuzz/*.h`
    - `Packages/com.unity.ugui/Runtime/HindiHarfBuzz/third_party~/harfbuzz/android/arm64-v8a/lib/libharfbuzz.a`
@@ -17,6 +18,9 @@ This folder contains build scripts for Android and iOS native bridge libraries.
    - `Packages/com.unity.ugui/Runtime/HindiHarfBuzz/build_android.sh`
 4. Output:
    - `Packages/com.unity.ugui/Runtime/Plugins/Android/arm64-v8a/libHindiHarfBuzz.so`
+5. Verification:
+   - `llvm-objdump -p Packages/com.unity.ugui/Runtime/Plugins/Android/arm64-v8a/libHindiHarfBuzz.so | grep LOAD`
+   - Every `LOAD` segment should report `align 2**14` or higher for 16 KB support.
 
 ## iOS
 

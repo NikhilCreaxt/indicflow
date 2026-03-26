@@ -5,7 +5,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PACKAGE_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 PLUGIN_DIR="$SCRIPT_DIR"
 OUT_DIR="$PACKAGE_DIR/Runtime/Plugins/Android/arm64-v8a"
-BUILD_DIR="$PLUGIN_DIR/.build/android-arm64"
+BUILD_DIR="$PLUGIN_DIR/.build~/android-arm64"
 
 : "${ANDROID_NDK_HOME:?Set ANDROID_NDK_HOME to your Android NDK path}"
 
@@ -14,6 +14,10 @@ HB_INCLUDE_DIR="$HB_ROOT/include/harfbuzz"
 HB_LIBRARY="$HB_ROOT/lib/libharfbuzz.a"
 
 mkdir -p "$OUT_DIR"
+
+# This is a generated build directory; resetting it avoids stale CMake caches
+# when the package is rebuilt from another checkout path.
+rm -rf "$BUILD_DIR"
 
 if [ ! -f "$HB_LIBRARY" ]; then
   echo "Missing $HB_LIBRARY"
@@ -25,6 +29,7 @@ cmake -S "$PLUGIN_DIR" -B "$BUILD_DIR" \
   -DCMAKE_TOOLCHAIN_FILE="$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake" \
   -DANDROID_ABI=arm64-v8a \
   -DANDROID_PLATFORM=android-23 \
+  -DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON \
   -DCMAKE_BUILD_TYPE=Release \
   -DHARFBUZZ_INCLUDE_DIR="$HB_INCLUDE_DIR" \
   -DHARFBUZZ_LIBRARY="$HB_LIBRARY"
