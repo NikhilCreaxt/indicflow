@@ -95,6 +95,8 @@ namespace TMPro
         private readonly List<Color32> m_ShapedCharColors = new List<Color32>();
         private readonly List<float> m_PreNoJoinCharScales = new List<float>();
         private readonly List<float> m_ShapedCharScales = new List<float>();
+        private readonly List<FontStyles> m_PreNoJoinCharStyles = new List<FontStyles>();
+        private readonly List<FontStyles> m_ShapedCharStyles = new List<FontStyles>();
         private readonly List<ParsedLinkRange> m_PreNoJoinLinks = new List<ParsedLinkRange>();
         private readonly List<ParsedLinkRange> m_ShapedLinks = new List<ParsedLinkRange>();
         private readonly List<int> m_ProcessedSourceCharIndices = new List<int>();
@@ -233,7 +235,6 @@ namespace TMPro
             float faceScale = fontAsset.faceInfo.scale;
             float fontScale = fontSize / pointSize * faceScale;
             float hbScale = fontSize / unitsPerEm * faceScale;
-            float xScale = ComputeSdfXScale((fontStyle & FontStyles.Bold) == FontStyles.Bold);
 
             Rect rect = rectTransform.rect;
             Vector4 margins = margin;
@@ -308,6 +309,12 @@ namespace TMPro
                         globalGlyphIndex,
                         totalGlyphCount,
                         clusterMappingUsable);
+                    FontStyles glyphStyle = ResolveStyleForGlyph(
+                        shapedGlyph.Cluster,
+                        globalGlyphIndex,
+                        totalGlyphCount,
+                        clusterMappingUsable);
+                    float glyphXScale = ComputeSdfXScale((glyphStyle & FontStyles.Bold) == FontStyles.Bold);
                     float advanceX = shapedGlyph.XAdvance * hbScale * glyphScale;
                     float advanceY = shapedGlyph.YAdvance * hbScale * glyphScale;
                     bool glyphVisible = false;
@@ -335,7 +342,7 @@ namespace TMPro
                             penY,
                             hbScale * glyphScale,
                             fontScale * glyphScale,
-                            xScale,
+                            glyphXScale,
                             glyphColor,
                             out vertexStart,
                             out glyphMinX,
@@ -520,10 +527,11 @@ namespace TMPro
             if (m_TextProcessingArray == null || m_TextProcessingArray.Length == 0)
             {
                 string fallbackSource = text ?? string.Empty;
-                string fallbackStripped = StripRichTextTagsForShaping(fallbackSource, m_PreNoJoinCharColors, m_PreNoJoinCharScales, m_PreNoJoinLinks);
+                string fallbackStripped = StripRichTextTagsForShaping(fallbackSource, m_PreNoJoinCharColors, m_PreNoJoinCharScales, m_PreNoJoinCharStyles, m_PreNoJoinLinks);
                 string fallbackProcessed = ApplyNoJoinWordConfiguration(fallbackStripped);
                 BuildProcessedCharColors(fallbackStripped, fallbackProcessed);
                 BuildProcessedCharScales(fallbackStripped, fallbackProcessed);
+                BuildProcessedCharStyles(fallbackStripped, fallbackProcessed);
                 BuildProcessedLinks(fallbackStripped, fallbackProcessed);
                 BuildUtf8ByteToCharIndexMap(fallbackProcessed);
                 return fallbackProcessed;
@@ -550,19 +558,26 @@ namespace TMPro
                 }
             }
 
-            string strippedSource = StripRichTextTagsForShaping(builder.ToString(), m_PreNoJoinCharColors, m_PreNoJoinCharScales, m_PreNoJoinLinks);
+            string strippedSource = StripRichTextTagsForShaping(builder.ToString(), m_PreNoJoinCharColors, m_PreNoJoinCharScales, m_PreNoJoinCharStyles, m_PreNoJoinLinks);
             string processedSource = ApplyNoJoinWordConfiguration(strippedSource);
             BuildProcessedCharColors(strippedSource, processedSource);
             BuildProcessedCharScales(strippedSource, processedSource);
+            BuildProcessedCharStyles(strippedSource, processedSource);
             BuildProcessedLinks(strippedSource, processedSource);
             BuildUtf8ByteToCharIndexMap(processedSource);
             return processedSource;
         }
 
-        private string StripRichTextTagsForShaping(string sourceText, List<Color32> outputCharColors, List<float> outputCharScales, List<ParsedLinkRange> outputLinks)
+        private string StripRichTextTagsForShaping(
+            string sourceText,
+            List<Color32> outputCharColors,
+            List<float> outputCharScales,
+            List<FontStyles> outputCharStyles,
+            List<ParsedLinkRange> outputLinks)
         {
             outputCharColors.Clear();
             outputCharScales.Clear();
+            outputCharStyles.Clear();
             outputLinks.Clear();
 
             if (string.IsNullOrEmpty(sourceText))
@@ -570,11 +585,12 @@ namespace TMPro
 
             Color32 defaultColor = color;
             float defaultScale = 1f;
+            FontStyles defaultStyle = fontStyle;
             if (!m_isRichText)
             {
                 StringBuilder plainBuilder = new StringBuilder(sourceText.Length);
                 for (int i = 0; i < sourceText.Length; i++)
-                    AppendStyledChar(plainBuilder, outputCharColors, outputCharScales, sourceText[i], defaultColor, defaultScale);
+                    AppendStyledChar(plainBuilder, outputCharColors, outputCharScales, outputCharStyles, sourceText[i], defaultColor, defaultScale, defaultStyle);
 
                 return plainBuilder.ToString();
             }
@@ -586,6 +602,9 @@ namespace TMPro
             Stack<float> sizeScaleStack = new Stack<float>();
             sizeScaleStack.Push(defaultScale);
             float currentScale = defaultScale;
+            Stack<FontStyles> styleStack = new Stack<FontStyles>();
+            styleStack.Push(defaultStyle);
+            FontStyles currentStyle = defaultStyle;
             Stack<OpenLinkMarker> linkStack = new Stack<OpenLinkMarker>();
             bool noParseMode = false;
 
@@ -610,9 +629,9 @@ namespace TMPro
                             }
                             else
                             {
-                                AppendStyledChar(builder, outputCharColors, outputCharScales, '<', currentColor, currentScale);
-                                AppendStyledString(builder, outputCharColors, outputCharScales, tagToken, currentColor, currentScale);
-                                AppendStyledChar(builder, outputCharColors, outputCharScales, '>', currentColor, currentScale);
+                                AppendStyledChar(builder, outputCharColors, outputCharScales, outputCharStyles, '<', currentColor, currentScale, currentStyle);
+                                AppendStyledString(builder, outputCharColors, outputCharScales, outputCharStyles, tagToken, currentColor, currentScale, currentStyle);
+                                AppendStyledChar(builder, outputCharColors, outputCharScales, outputCharStyles, '>', currentColor, currentScale, currentStyle);
                             }
 
                             i = tagEnd;
@@ -624,10 +643,13 @@ namespace TMPro
                                 builder,
                                 outputCharColors,
                                 outputCharScales,
+                                outputCharStyles,
                                 colorStack,
                                 ref currentColor,
                                 sizeScaleStack,
                                 ref currentScale,
+                                styleStack,
+                                ref currentStyle,
                                 linkStack,
                                 outputLinks,
                                 ref noParseMode))
@@ -638,7 +660,7 @@ namespace TMPro
                     }
                 }
 
-                AppendStyledChar(builder, outputCharColors, outputCharScales, c, currentColor, currentScale);
+                AppendStyledChar(builder, outputCharColors, outputCharScales, outputCharStyles, c, currentColor, currentScale, currentStyle);
             }
 
             while (linkStack.Count > 0)
@@ -678,28 +700,33 @@ namespace TMPro
             StringBuilder builder,
             List<Color32> outputCharColors,
             List<float> outputCharScales,
+            List<FontStyles> outputCharStyles,
             string value,
             Color32 colorValue,
-            float scaleValue)
+            float scaleValue,
+            FontStyles styleValue)
         {
             if (string.IsNullOrEmpty(value))
                 return;
 
             for (int i = 0; i < value.Length; i++)
-                AppendStyledChar(builder, outputCharColors, outputCharScales, value[i], colorValue, scaleValue);
+                AppendStyledChar(builder, outputCharColors, outputCharScales, outputCharStyles, value[i], colorValue, scaleValue, styleValue);
         }
 
         private static void AppendStyledChar(
             StringBuilder builder,
             List<Color32> outputCharColors,
             List<float> outputCharScales,
+            List<FontStyles> outputCharStyles,
             char value,
             Color32 colorValue,
-            float scaleValue)
+            float scaleValue,
+            FontStyles styleValue)
         {
             builder.Append(value);
             outputCharColors.Add(colorValue);
             outputCharScales.Add(scaleValue);
+            outputCharStyles.Add(styleValue);
         }
 
         private bool ProcessRichTextTagToken(
@@ -707,10 +734,13 @@ namespace TMPro
             StringBuilder output,
             List<Color32> outputCharColors,
             List<float> outputCharScales,
+            List<FontStyles> outputCharStyles,
             Stack<Color32> colorStack,
             ref Color32 currentColor,
             Stack<float> sizeScaleStack,
             ref float currentScale,
+            Stack<FontStyles> styleStack,
+            ref FontStyles currentStyle,
             Stack<OpenLinkMarker> linkStack,
             List<ParsedLinkRange> outputLinks,
             ref bool noParseMode)
@@ -740,6 +770,11 @@ namespace TMPro
                 {
                     sizeScaleStack.Pop();
                     currentScale = sizeScaleStack.Peek();
+                }
+                else if (string.Equals(name, "b", StringComparison.OrdinalIgnoreCase) && styleStack.Count > 1)
+                {
+                    styleStack.Pop();
+                    currentStyle = styleStack.Peek();
                 }
                 else if (string.Equals(name, "link", StringComparison.OrdinalIgnoreCase) || string.Equals(name, "a", StringComparison.OrdinalIgnoreCase))
                 {
@@ -771,6 +806,14 @@ namespace TMPro
                 return true;
             }
 
+            if (string.Equals(name, "b", StringComparison.OrdinalIgnoreCase))
+            {
+                FontStyles boldStyle = currentStyle | FontStyles.Bold;
+                styleStack.Push(boldStyle);
+                currentStyle = boldStyle;
+                return true;
+            }
+
             if (string.Equals(name, "link", StringComparison.OrdinalIgnoreCase))
             {
                 if (TryParseLinkTagId(token, out string linkId))
@@ -789,31 +832,31 @@ namespace TMPro
 
             if (string.Equals(name, "br", StringComparison.OrdinalIgnoreCase) || string.Equals(name, "cr", StringComparison.OrdinalIgnoreCase))
             {
-                AppendStyledChar(output, outputCharColors, outputCharScales, '\n', currentColor, currentScale);
+                AppendStyledChar(output, outputCharColors, outputCharScales, outputCharStyles, '\n', currentColor, currentScale, currentStyle);
                 return true;
             }
 
             if (string.Equals(name, "nbsp", StringComparison.OrdinalIgnoreCase))
             {
-                AppendStyledChar(output, outputCharColors, outputCharScales, '\u00A0', currentColor, currentScale);
+                AppendStyledChar(output, outputCharColors, outputCharScales, outputCharStyles, '\u00A0', currentColor, currentScale, currentStyle);
                 return true;
             }
 
             if (string.Equals(name, "zwsp", StringComparison.OrdinalIgnoreCase))
             {
-                AppendStyledChar(output, outputCharColors, outputCharScales, '\u200B', currentColor, currentScale);
+                AppendStyledChar(output, outputCharColors, outputCharScales, outputCharStyles, '\u200B', currentColor, currentScale, currentStyle);
                 return true;
             }
 
             if (string.Equals(name, "zwj", StringComparison.OrdinalIgnoreCase))
             {
-                AppendStyledChar(output, outputCharColors, outputCharScales, '\u200D', currentColor, currentScale);
+                AppendStyledChar(output, outputCharColors, outputCharScales, outputCharStyles, '\u200D', currentColor, currentScale, currentStyle);
                 return true;
             }
 
             if (string.Equals(name, "shy", StringComparison.OrdinalIgnoreCase))
             {
-                AppendStyledChar(output, outputCharColors, outputCharScales, '\u00AD', currentColor, currentScale);
+                AppendStyledChar(output, outputCharColors, outputCharScales, outputCharStyles, '\u00AD', currentColor, currentScale, currentStyle);
                 return true;
             }
 
@@ -1154,6 +1197,63 @@ namespace TMPro
             }
         }
 
+        private void BuildProcessedCharStyles(string sourceWithoutTags, string processedText)
+        {
+            m_ShapedCharStyles.Clear();
+
+            if (string.IsNullOrEmpty(processedText))
+                return;
+
+            FontStyles defaultStyle = fontStyle;
+            if (m_PreNoJoinCharStyles.Count == 0)
+            {
+                for (int i = 0; i < processedText.Length; i++)
+                    m_ShapedCharStyles.Add(defaultStyle);
+                return;
+            }
+
+            if (string.Equals(sourceWithoutTags, processedText, StringComparison.Ordinal))
+            {
+                for (int i = 0; i < processedText.Length; i++)
+                {
+                    if (i < m_PreNoJoinCharStyles.Count)
+                        m_ShapedCharStyles.Add(m_PreNoJoinCharStyles[i]);
+                    else
+                        m_ShapedCharStyles.Add(defaultStyle);
+                }
+
+                return;
+            }
+
+            int sourceIndex = 0;
+            FontStyles lastStyle = m_PreNoJoinCharStyles[0];
+
+            for (int processedIndex = 0; processedIndex < processedText.Length; processedIndex++)
+            {
+                char outputChar = processedText[processedIndex];
+
+                if (sourceIndex < sourceWithoutTags.Length && sourceWithoutTags[sourceIndex] == outputChar)
+                {
+                    FontStyles sourceStyle = sourceIndex < m_PreNoJoinCharStyles.Count ? m_PreNoJoinCharStyles[sourceIndex] : lastStyle;
+                    m_ShapedCharStyles.Add(sourceStyle);
+                    lastStyle = sourceStyle;
+                    sourceIndex++;
+                    continue;
+                }
+
+                if (outputChar == k_ZeroWidthNonJoiner || outputChar == k_ZeroWidthJoiner)
+                {
+                    m_ShapedCharStyles.Add(lastStyle);
+                    continue;
+                }
+
+                if (sourceIndex < m_PreNoJoinCharStyles.Count)
+                    lastStyle = m_PreNoJoinCharStyles[sourceIndex];
+
+                m_ShapedCharStyles.Add(lastStyle);
+            }
+        }
+
         private void BuildProcessedLinks(string sourceWithoutTags, string processedText)
         {
             m_ShapedLinks.Clear();
@@ -1387,6 +1487,43 @@ namespace TMPro
             return Mathf.Max(0.01f, m_ShapedCharScales[charIndex]);
         }
 
+        private FontStyles ResolveStyleForCluster(uint cluster, FontStyles fallbackStyle)
+        {
+            if (m_ShapedCharStyles.Count == 0 || m_Utf8ByteToCharIndex.Count == 0)
+                return fallbackStyle;
+
+            int byteIndex = (int)cluster;
+            if (byteIndex < 0)
+                return fallbackStyle;
+
+            int charIndex = byteIndex < m_Utf8ByteToCharIndex.Count
+                ? m_Utf8ByteToCharIndex[byteIndex]
+                : m_Utf8ByteToCharIndex[m_Utf8ByteToCharIndex.Count - 1];
+
+            if (charIndex >= 0 && charIndex < m_ShapedCharStyles.Count)
+                return m_ShapedCharStyles[charIndex];
+
+            return fallbackStyle;
+        }
+
+        private FontStyles ResolveStyleForGlyph(uint cluster, int glyphIndex, int totalGlyphCount, bool clusterMappingUsable)
+        {
+            FontStyles fallbackStyle = fontStyle;
+
+            if (clusterMappingUsable)
+                return ResolveStyleForCluster(cluster, fallbackStyle);
+
+            if (m_ShapedCharStyles.Count == 0)
+                return fallbackStyle;
+
+            if (m_ShapedCharStyles.Count == 1 || totalGlyphCount <= 1)
+                return m_ShapedCharStyles[0];
+
+            float t = Mathf.Clamp01((float)glyphIndex / (totalGlyphCount - 1));
+            int charIndex = Mathf.Clamp(Mathf.RoundToInt(t * (m_ShapedCharStyles.Count - 1)), 0, m_ShapedCharStyles.Count - 1);
+            return m_ShapedCharStyles[charIndex];
+        }
+
         private float ComputeRenderedLineWidth(LineLayout line, float hbScale, int lineStartGlyphIndex, int totalGlyphCount, bool clusterMappingUsable)
         {
             if (line == null || line.glyphs.Count == 0)
@@ -1612,7 +1749,7 @@ namespace TMPro
                 characterInfo.scale = i < m_ShapedCharScales.Count ? m_ShapedCharScales[i] : 1f;
                 characterInfo.color = i < m_CharColors.Count ? m_CharColors[i] : color;
                 characterInfo.isVisible = hasGeometry;
-                characterInfo.style = fontStyle;
+                characterInfo.style = i < m_ShapedCharStyles.Count ? m_ShapedCharStyles[i] : fontStyle;
                 characterInfo.bottomLeft = new Vector3(minX, minY, 0f);
                 characterInfo.topLeft = new Vector3(minX, maxY, 0f);
                 characterInfo.topRight = new Vector3(maxX, maxY, 0f);

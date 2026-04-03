@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.0.0-hb.28] - 2026-04-03
+- Added `\<b>...\</b>` rich-text support in `TMPro.HarfBuzzTextMeshProUGUI`.
+- Preserved per-character bold style through the HarfBuzz shaping pipeline so speaker labels and other inline bold spans render correctly.
+- Kept the change scoped to the package renderer without altering unrelated runtime behavior.
+
 ## [2.0.0-hb.27] - 2026-03-26
 - Updated the Android HarfBuzz bridge build to emit 16 KB page-size compatible `libHindiHarfBuzz.so`.
 - Enabled Android flexible page-size support during CMake configure for rebuilds.
