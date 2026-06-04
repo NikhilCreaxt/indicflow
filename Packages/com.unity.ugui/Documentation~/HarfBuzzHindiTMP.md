@@ -67,6 +67,7 @@ Prebuilt native plugins are included in this package:
 - macOS: `Runtime/Plugins/macOS/libHindiHarfBuzz.dylib`
 - Android: `Runtime/Plugins/Android/arm64-v8a/libHindiHarfBuzz.so`
 - iOS: `Runtime/Plugins/iOS/HindiHarfBuzz.xcframework`
+- WebGL: `Runtime/Plugins/WebGL/libHindiHarfBuzz.a`
 
 Build scripts in `Runtime/HindiHarfBuzz` are only for rebuilding native binaries, not required for normal package use.
 
@@ -77,7 +78,7 @@ Install with:
 ```json
 {
   "dependencies": {
-    "com.unity.ugui": "https://github.com/NikhilCreaxt/indicflow.git?path=/Packages/com.unity.ugui#v2.0.0-hb.27"
+    "com.unity.ugui": "https://github.com/NikhilCreaxt/indicflow.git?path=/Packages/com.unity.ugui#v2.0.0-hb.29"
   }
 }
 ```
@@ -88,4 +89,4 @@ Use this if you want Package Manager `Update` to follow latest stable branch:
 
 Or in Package Manager, add package from git URL:
 
-`https://github.com/NikhilCreaxt/indicflow.git?path=/Packages/com.unity.ugui#v2.0.0-hb.27`
+`https://github.com/NikhilCreaxt/indicflow.git?path=/Packages/com.unity.ugui#v2.0.0-hb.29`

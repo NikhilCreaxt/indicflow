@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.0.0-hb.29] - 2026-06-04
+- Added WebGL native plugin support for `TMPro.HarfBuzzTextMeshProUGUI`.
+- Built and packaged a WebGL bridge archive under `Runtime/Plugins/WebGL`.
+- Added `build_webgl.sh` and WebGL HarfBuzz headers for rebuilding the bridge with Unity's bundled Emscripten toolchain. The bridge links against Unity WebGL's built-in HarfBuzz symbols to avoid duplicate linker definitions.
+
 ## [2.0.0-hb.28] - 2026-04-03
 - Added `\<b>...\</b>` rich-text support in `TMPro.HarfBuzzTextMeshProUGUI`.
 - Preserved per-character bold style through the HarfBuzz shaping pipeline so speaker labels and other inline bold spans render correctly.

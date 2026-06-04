@@ -39,8 +39,35 @@ To rebuild macOS dylib:
 
 - `Packages/com.unity.ugui/Runtime/HindiHarfBuzz/build_macos.sh`
 
+## WebGL
+
+Unity WebGL native plugins are linked into the final WebAssembly build, so
+`TMP_HarfBuzzNative` imports HarfBuzz bridge symbols through `__Internal` for
+WebGL players.
+
+1. Use the same Emscripten toolchain that ships with the Unity editor used for
+   the WebGL build.
+   - This project was checked against Unity `6000.4.0f1`, whose bundled
+     Emscripten reports `3.1.39-git`.
+   - If your editor is in a different location, set `UNITY_EDITOR_PATH`.
+   - Alternatively set `UNITY_EMSCRIPTEN_DIR`, `EMCC`, `EMAR`, and `EMRANLIB`.
+2. Place HarfBuzz WebGL headers:
+   - `Packages/com.unity.ugui/Runtime/HindiHarfBuzz/third_party~/harfbuzz/webgl/include/harfbuzz/*.h`
+3. Run:
+   - `Packages/com.unity.ugui/Runtime/HindiHarfBuzz/build_webgl.sh`
+4. Output:
+   - `Packages/com.unity.ugui/Runtime/Plugins/WebGL/libHindiHarfBuzz.a`
+
+Unity's WebGL TextRendering module already links HarfBuzz. The WebGL archive
+contains only the IndicFlow bridge object and leaves `hb_*` HarfBuzz references
+unresolved for Unity's built-in WebGL HarfBuzz to satisfy at final link time.
+Do not bundle a second HarfBuzz static library into the WebGL plugin archive,
+or `wasm-ld` will fail with duplicate `hb_*` symbols.
+
 ## Unity plugin import
 
 - Android: place `.so` under `Packages/com.unity.ugui/Runtime/Plugins/Android/arm64-v8a/`.
 - iOS: place `.a` or `.xcframework` under `Packages/com.unity.ugui/Runtime/Plugins/iOS/`.
 - iOS `DllImport` must use `__Internal` (already handled in C# wrappers).
+- WebGL: place `.a` under `Packages/com.unity.ugui/Runtime/Plugins/WebGL/`.
+- WebGL `DllImport` must use `__Internal` (already handled in C# wrappers).

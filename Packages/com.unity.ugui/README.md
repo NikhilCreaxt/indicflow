@@ -10,6 +10,7 @@ This package includes:
 
 - `TMPro.HarfBuzzTextMeshProUGUI`
 - HarfBuzz native bridge integration for Devanagari shaping
+- WebGL native bridge archive for browser builds
 - Bundled fallback `.ttf.bytes` for runtime shaping (no sample import required)
 - Bundled fallback TMP font asset (bundled defaults are auto-prioritized for zero-setup use)
 - Auto-assignment of bundled defaults when the component is created

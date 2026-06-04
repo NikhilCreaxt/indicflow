@@ -1,6 +1,6 @@
 # IndicFlow - TMP Text Shaping Engine
 
-Unity TextMeshPro Hindi/Devanagari shaping fix (HarfBuzz) for Android + iOS + Editor.
+Unity TextMeshPro Hindi/Devanagari shaping fix (HarfBuzz) for Android, iOS, WebGL, and Editor.
 
 If Hindi text looks correct in Editor but breaks on devices (conjuncts, matras, nuqta, chandrabindu), IndicFlow provides HarfBuzz shaping in TMP UGUI through `TMPro.HarfBuzzTextMeshProUGUI`.
 
@@ -11,7 +11,7 @@ Add this to `Packages/manifest.json`:
 ```json
 {
   "dependencies": {
-    "com.unity.ugui": "https://github.com/NikhilCreaxt/indicflow.git?path=/Packages/com.unity.ugui#v2.0.0-hb.26"
+    "com.unity.ugui": "https://github.com/NikhilCreaxt/indicflow.git?path=/Packages/com.unity.ugui#v2.0.0-hb.29"
   }
 }
 ```
@@ -44,12 +44,13 @@ Use No-Join rules when specific Hindi words (or specific conjunct patterns insid
 - Editor (macOS/Windows)
 - Android (IL2CPP)
 - iOS (IL2CPP)
-- Unity 6000.2.x and 6000.3.x
+- WebGL
+- Unity 6000.2.x, 6000.3.x, and 6000.4.x
 
 ## Common Errors
 
 ### `CS0136 ... packagePath ...`
-- Use `#v2.0.0-hb.26` or newer.
+- Use `#v2.0.0-hb.29` or newer.
 - Close Unity, delete `Library/PackageCache/com.unity.ugui@*`, reopen.
 
 ### `HarfBuzz native plugin missing ... HindiHarfBuzz not found`
