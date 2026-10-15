@@ -42,16 +42,6 @@ namespace TMPro.EditorUtilities
         [SerializeField]
         private static string m_PackageFullPath;
 
-        private static readonly string[] k_UpmPackagePaths =
-        {
-            "Packages/com.unity.ugui"
-        };
-
-        private static readonly string[] k_DevelopmentPackagePaths =
-        {
-            "Assets/Packages/com.unity.ugui"
-        };
-
         // Static Fields Related to locating the TextMesh Pro Asset
         private static string folderPath = "Not Found";
 
@@ -130,7 +120,7 @@ namespace TMPro.EditorUtilities
                 string materialPath = AssetDatabase.GUIDToAssetPath(materialAssetGUIDs[i]);
                 Material targetMaterial = AssetDatabase.LoadAssetAtPath<Material>(materialPath);
 
-                if (targetMaterial.HasProperty(ShaderUtilities.ID_MainTex) && targetMaterial.GetTexture(ShaderUtilities.ID_MainTex) != null && mat.GetTexture(ShaderUtilities.ID_MainTex) != null && targetMaterial.GetTexture(ShaderUtilities.ID_MainTex).GetInstanceID() == mat.GetTexture(ShaderUtilities.ID_MainTex).GetInstanceID())
+                if (targetMaterial.HasProperty(ShaderUtilities.ID_MainTex) && targetMaterial.GetTexture(ShaderUtilities.ID_MainTex) != null && mat.GetTexture(ShaderUtilities.ID_MainTex) != null && targetMaterial.GetTexture(ShaderUtilities.ID_MainTex).GetEntityId() == mat.GetTexture(ShaderUtilities.ID_MainTex).GetEntityId())
                 {
                     if (!refs.Contains(targetMaterial))
                         refs.Add(targetMaterial);
@@ -168,21 +158,19 @@ namespace TMPro.EditorUtilities
         private static string GetPackageRelativePath()
         {
             // Check for potential UPM package
-            for (int i = 0; i < k_UpmPackagePaths.Length; i++)
+            string packagePath = Path.GetFullPath("Packages/com.unity.ugui");
+            if (Directory.Exists(packagePath))
             {
-                string candidatePath = Path.GetFullPath(k_UpmPackagePaths[i]);
-                if (Directory.Exists(candidatePath))
-                    return k_UpmPackagePaths[i];
+                return "Packages/com.unity.ugui";
             }
 
-            string packagePath = Path.GetFullPath("Assets/..");
+            packagePath = Path.GetFullPath("Assets/..");
             if (Directory.Exists(packagePath))
             {
                 // Search default location for development package
-                for (int i = 0; i < k_DevelopmentPackagePaths.Length; i++)
+                if (Directory.Exists(packagePath + "/Assets/Packages/com.unity.ugui/Editor Resources"))
                 {
-                    if (Directory.Exists(packagePath + "/" + k_DevelopmentPackagePaths[i] + "/Editor Resources"))
-                        return k_DevelopmentPackagePaths[i];
+                    return "Assets/Packages/com.unity.ugui";
                 }
 
                 // Search for potential alternative locations in the user project
@@ -197,21 +185,19 @@ namespace TMPro.EditorUtilities
         private static string GetPackageFullPath()
         {
             // Check for potential UPM package
-            for (int i = 0; i < k_UpmPackagePaths.Length; i++)
+            string packagePath = Path.GetFullPath("Packages/com.unity.ugui");
+            if (Directory.Exists(packagePath))
             {
-                string candidatePath = Path.GetFullPath(k_UpmPackagePaths[i]);
-                if (Directory.Exists(candidatePath))
-                    return candidatePath;
+                return packagePath;
             }
 
-            string packagePath = Path.GetFullPath("Assets/..");
+            packagePath = Path.GetFullPath("Assets/..");
             if (Directory.Exists(packagePath))
             {
                 // Search default location for development package
-                for (int i = 0; i < k_DevelopmentPackagePaths.Length; i++)
+                if (Directory.Exists(packagePath + "/Assets/Packages/com.unity.ugui/Editor Resources"))
                 {
-                    if (Directory.Exists(packagePath + "/" + k_DevelopmentPackagePaths[i] + "/Editor Resources"))
-                        return packagePath + "/" + k_DevelopmentPackagePaths[i];
+                    return packagePath + "/Assets/Packages/com.unity.ugui";
                 }
 
                 // Search for potential alternative locations in the user project

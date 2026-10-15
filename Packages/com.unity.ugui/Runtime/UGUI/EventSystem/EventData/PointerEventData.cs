@@ -97,7 +97,7 @@ namespace UnityEngine.EventSystems
         public List<GameObject> hovered = new List<GameObject>();
 
         /// <summary>
-        /// Is it possible to click this frame
+        /// Used to track if the current pointer event can produce a click event later.
         /// </summary>
         public bool eligibleForClick { get; set; }
 
@@ -107,22 +107,24 @@ namespace UnityEngine.EventSystems
         public int displayIndex { get; set; }
 
         /// <summary>
-        /// Id of the pointer (touch id).
+        /// ID of the pointer.
+        /// Returns `-1`, `-2`, or `-3` for the left, right, and middle mouse buttons when you use a mouse.
+        /// On mobile touchscreens, such as iPad, iPhone, or Android, touch IDs go from `0` up to the number of touches the device supports.
         /// </summary>
         public int pointerId { get; set; }
 
         /// <summary>
-        /// Current pointer position.
+        /// Current pointer position in screen space.
         /// </summary>
         public Vector2 position { get; set; }
 
         /// <summary>
-        /// Pointer delta since last update.
+        /// Pointer delta in screen space since last update.
         /// </summary>
         public Vector2 delta { get; set; }
 
         /// <summary>
-        /// Position of the press.
+        /// Position of the press in screen space.
         /// </summary>
         public Vector2 pressPosition { get; set; }
 
@@ -130,13 +132,13 @@ namespace UnityEngine.EventSystems
         /// World-space position where a ray cast into the screen hits something
         /// </summary>
 
-        [Obsolete("Use either pointerCurrentRaycast.worldPosition or pointerPressRaycast.worldPosition")]
+        [Obsolete("Use either pointerCurrentRaycast.worldPosition or pointerPressRaycast.worldPosition", true)]
         public Vector3 worldPosition { get; set; }
 
         /// <summary>
         /// World-space normal where a ray cast into the screen hits something
         /// </summary>
-        [Obsolete("Use either pointerCurrentRaycast.worldNormal or pointerPressRaycast.worldNormal")]
+        [Obsolete("Use either pointerCurrentRaycast.worldNormal or pointerPressRaycast.worldNormal", true)]
         public Vector3 worldNormal { get; set; }
 
         /// <summary>

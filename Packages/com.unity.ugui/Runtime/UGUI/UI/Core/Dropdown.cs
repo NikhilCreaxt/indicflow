@@ -10,6 +10,7 @@ namespace UnityEngine.UI
 {
     [AddComponentMenu("UI (Canvas)/Legacy/Dropdown", 102)]
     [RequireComponent(typeof(RectTransform))]
+    [UGUIHelpURL("Dropdown")]
     /// <summary>
     ///   A standard dropdown that presents a list of options when clicked, of which one can be chosen.
     /// </summary>
@@ -189,7 +190,7 @@ namespace UnityEngine.UI
         /// This is the list of options within the Dropdown. Each option contains Text and/or image data that you can specify using UI.Dropdown.OptionData before adding to the Dropdown list.
         /// This also unlocks the ability to edit the Dropdown, including the insertion, removal, and finding of options, as well as other useful tools
         /// </remarks>
-        /// /// <example>
+        /// <example>
         /// <code>
         /// <![CDATA[
         /// //Create a new Dropdown GameObject by going to the Hierarchy and clicking __Create__>__UI__>__Dropdown__. Attach this script to the Dropdown GameObject.
@@ -345,7 +346,7 @@ namespace UnityEngine.UI
         private bool validTemplate = false;
         private const int kHighSortingLayer = 30000;
 
-        private static OptionData s_NoOptionData = new OptionData();
+        private static readonly OptionData s_NoOptionData = new OptionData();
 
         /// <summary>
         /// The Value is the index number of the current selection in the Dropdown. 0 is the first option in the Dropdown, 1 is the second, and so on.

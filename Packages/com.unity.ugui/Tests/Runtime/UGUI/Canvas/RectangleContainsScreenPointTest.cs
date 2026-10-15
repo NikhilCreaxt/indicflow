@@ -67,7 +67,7 @@ internal class RectangleContainsScreenPointTest : MonoBehaviour
                 Assert.Fail("Rectangle does not Contains ScreenPoint");
             }
         }
-        
+
         if (!ErrorHit)
         {
             Assert.Pass();

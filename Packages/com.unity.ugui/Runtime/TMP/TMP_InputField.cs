@@ -11,6 +11,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
+using Unity.Scripting.LifecycleManagement;
 
 
 namespace TMPro
@@ -19,8 +20,8 @@ namespace TMPro
     /// Editable text input field.
     /// </summary>
     [AddComponentMenu("UI (Canvas)/TextMeshPro - Input Field", 11)]
-        #if UNITY_2023_2_OR_NEWER
-    [HelpURL("https://docs.unity3d.com/Packages/com.unity.ugui@2.0/manual/TextMeshPro/index.html")]
+    #if UNITY_2023_2_OR_NEWER
+    [TMPHelpURL("index")]
     #else
     [HelpURL("https://docs.unity3d.com/Packages/com.unity.textmeshpro@3.2")]
     #endif
@@ -97,13 +98,15 @@ namespace TMPro
         public class TouchScreenKeyboardEvent : UnityEvent<TouchScreenKeyboard.Status> { }
 
         protected TouchScreenKeyboard m_SoftKeyboard;
-        static private readonly char[] kSeparators = { ' ', '.', ',', '\t', '\r', '\n' };
+        private static readonly char[] kSeparators = { ' ', '.', ',', '\t', '\r', '\n' };
 
     #if UNITY_ANDROID
-        static private bool s_IsQuestDeviceEvaluated = false;
+        [NoAutoStaticsCleanup] // Don't need to reset it: only needed in player, on device
+        private static bool s_IsQuestDeviceEvaluated = false;
     #endif // if UNITY_ANDROID
 
-        static private bool s_IsQuestDevice = false;
+        [NoAutoStaticsCleanup] // Don't need to reset it: only needed in player, on device
+        private static bool s_IsQuestDevice = false;
 
         #region Exposed properties
         /// <summary>
@@ -147,7 +150,7 @@ namespace TMPro
         private float m_ScrollPosition;
 
         /// <summary>
-        ///
+        /// Scroll sensitivity multiplier for mouse wheel or touch scroll input.
         /// </summary>
         [SerializeField]
         protected float m_ScrollSensitivity = 1.0f;
@@ -336,6 +339,7 @@ namespace TMPro
         private bool m_IsTextComponentUpdateRequired = false;
 
         private bool m_HasTextBeenRemoved = false;
+
         private float m_PointerDownClickStartTime;
         private float m_KeyDownStartTime;
         private float m_DoubleClickDelay = 0.5f;
@@ -360,7 +364,6 @@ namespace TMPro
         {
             get { return inputSystem != null ? inputSystem.compositionString : Input.compositionString; }
         }
-        private bool m_IsCompositionActive = false;
         private bool m_ShouldUpdateIMEWindowPosition = false;
         private int m_PreviousIMEInsertionLine = 0;
 
@@ -473,9 +476,7 @@ namespace TMPro
                     case RuntimePlatform.GameCoreXboxSeries:
                     #endif
                     case RuntimePlatform.Switch:
-                    #if UNITY_6000_3_OR_NEWER
                     case RuntimePlatform.Switch2:
-                    #endif
                     #if UNITY_2022_1_OR_NEWER
                     case RuntimePlatform.WebGLPlayer:
                     #endif
@@ -509,9 +510,7 @@ namespace TMPro
                     case RuntimePlatform.GameCoreXboxSeries:
                     #endif
                     case RuntimePlatform.Switch:
-                    #if UNITY_6000_3_OR_NEWER
                     case RuntimePlatform.Switch2:
-                    #endif
                     #if UNITY_2022_1_OR_NEWER
                     case RuntimePlatform.WebGLPlayer:
                     #endif
@@ -553,9 +552,7 @@ namespace TMPro
                 case RuntimePlatform.GameCoreXboxSeries:
                 #endif
                 case RuntimePlatform.Switch:
-                #if UNITY_6000_3_OR_NEWER
                 case RuntimePlatform.Switch2:
-                #endif
                     return false;
                 #if UNITY_2022_1_OR_NEWER
                 case RuntimePlatform.WebGLPlayer:
@@ -969,6 +966,10 @@ namespace TMPro
                 pos = 0;
             else if (pos > text.Length)
                 pos = text.Length;
+
+            if (pos > 0 && pos < text.Length &&
+                char.IsHighSurrogate(text[pos - 1]) && char.IsLowSurrogate(text[pos]))
+                pos--;
         }
 
         protected void ClampCaretPos(ref int pos)
@@ -1005,8 +1006,9 @@ namespace TMPro
         private bool m_IsCaretPositionDirty;
         private bool m_forceRectTransformAdjustment;
 
-		// Primary to track when an user presses on the X to close the keyboard in the HoloLens
-		private bool m_IsKeyboardBeingClosedInHoloLens = false;
+        // Primary to track when an user presses on the X to close the keyboard in touchscreen.
+        // This was first observed as an issue on HoloLens (TMBP-98) as the X button does not act as an ESC key.
+		private bool m_IsKeyboardBeingClosedInTouchscreen = false;
 
         /// <summary>
         /// Get: Returns the focus position as thats the position that moves around even during selection.
@@ -1061,7 +1063,7 @@ namespace TMPro
 
 
         /// <summary>
-        ///
+        /// The current cursor position in the raw text string (excluding rich text tags).
         /// </summary>
         public int stringPosition
         {
@@ -1363,7 +1365,7 @@ namespace TMPro
         /// <summary>
         /// Move to the end of the text.
         /// </summary>
-        /// <param name="shift"></param>
+        /// <param name="shift">If true, extend the selection to the end; otherwise move the caret only.</param>
         public void MoveTextEnd(bool shift)
         {
             if (m_isRichTextEditingAllowed)
@@ -1402,7 +1404,7 @@ namespace TMPro
         /// <summary>
         /// Move to the start of the text.
         /// </summary>
-        /// <param name="shift"></param>
+        /// <param name="shift">If true, extend the selection to the start; otherwise move the caret only.</param>
         public void MoveTextStart(bool shift)
         {
             if (m_isRichTextEditingAllowed)
@@ -1442,7 +1444,8 @@ namespace TMPro
         /// <summary>
         /// Move to the end of the current line of text.
         /// </summary>
-        /// <param name="shift"></param>
+        /// <param name="shift">If true, extend the selection; otherwise move the caret only.</param>
+        /// <param name="ctrl">If true, move to the end of the entire text; otherwise the current line only.</param>
         public void MoveToEndOfLine(bool shift, bool ctrl)
         {
             // Get the line the caret is currently located on.
@@ -1473,7 +1476,8 @@ namespace TMPro
         /// <summary>
         /// Move to the start of the current line of text.
         /// </summary>
-        /// <param name="shift"></param>
+        /// <param name="shift">If true, extend the selection; otherwise move the caret only.</param>
+        /// <param name="ctrl">If true, move to the start of the entire text; otherwise the current line only.</param>
         public void MoveToStartOfLine(bool shift, bool ctrl)
         {
             // Get the line the caret is currently located on.
@@ -1746,30 +1750,32 @@ namespace TMPro
 
                     TouchScreenKeyboard.Status status = m_SoftKeyboard.status;
 
-                    // Special handling for UWP - Hololens which does not support Canceled status
                     if (m_LastKeyCode != KeyCode.Return && status == TouchScreenKeyboard.Status.Done && isUWP())
-					{
+                    {
                         status = TouchScreenKeyboard.Status.Canceled;
-                        // The HoloLen's X button will not be acting as an ESC Key (TMBP-98)
-						m_IsKeyboardBeingClosedInHoloLens = true;
-					}
+                        m_IsKeyboardBeingClosedInTouchscreen = true;
+                    }
 
                     switch (status)
-                    {
-                        case TouchScreenKeyboard.Status.LostFocus:
-                            SendTouchScreenKeyboardStatusChanged();
-                            break;
-                        case TouchScreenKeyboard.Status.Canceled:
-                            m_ReleaseSelection = true;
-                            m_WasCanceled = true;
-                            SendTouchScreenKeyboardStatusChanged();
-                            break;
-                        case TouchScreenKeyboard.Status.Done:
-                            m_ReleaseSelection = true;
-                            SendTouchScreenKeyboardStatusChanged();
-                            OnSubmit(null);
-                            break;
-                    }
+                        {
+                            case TouchScreenKeyboard.Status.LostFocus:
+                                SendTouchScreenKeyboardStatusChanged();
+                                break;
+                            case TouchScreenKeyboard.Status.Canceled:
+                                m_ReleaseSelection = true;
+                                m_WasCanceled = true;
+                                SendTouchScreenKeyboardStatusChanged();
+                                break;
+                            case TouchScreenKeyboard.Status.Done:
+                                m_ReleaseSelection = true;
+                                SendTouchScreenKeyboardStatusChanged();
+                                OnSubmit(null);
+                                break;
+                        }
+
+#if UNITY_ANDROID || UNITY_IOS
+                    DeactivateInputField();
+#endif
                 }
 
                 return;
@@ -1812,6 +1818,9 @@ namespace TMPro
                             OnDeselect(null);
                             return;
                         }
+
+                        if (!m_AllowInput)
+                            return;
 
                         // In the case of a Custom Validator, the user is expected to modify the m_Text where as such we do not append c.
                         // However we will append c if the user did not modify the m_Text (UUM-42147)
@@ -2342,9 +2351,9 @@ namespace TMPro
 
 
         /// <summary>
-        ///
+        /// Called by the EventSystem when the input field is selected; processes keyboard and navigation input.
         /// </summary>
-        /// <param name="eventData"></param>
+        /// <param name="eventData">The event data from the EventSystem.</param>
         public virtual void OnUpdateSelected(BaseEventData eventData)
         {
             if (!isFocused)
@@ -2355,7 +2364,7 @@ namespace TMPro
 
             while (Event.PopEvent(m_ProcessingEvent))
             {
-                //Debug.Log("Event: " + m_ProcessingEvent.ToString() + "  IsCompositionActive= " + m_IsCompositionActive + "  Composition Length: " + compositionLength);
+                //Debug.Log("Event: " + m_ProcessingEvent.ToString() + "  Composition Length: " + compositionLength);
 
                 EventType eventType = m_ProcessingEvent.rawType;
 
@@ -2365,14 +2374,6 @@ namespace TMPro
                 if (eventType == EventType.KeyDown)
                 {
                     consumedEvent = true;
-
-                    // Special handling on OSX which produces more events which need to be suppressed.
-                    if (m_IsCompositionActive && compositionLength == 0)
-                    {
-                        // Suppress other events related to navigation or termination of composition sequence.
-                        if (m_ProcessingEvent.character == 0 && m_ProcessingEvent.modifiers == EventModifiers.None)
-                            continue;
-                    }
 
                     editState = KeyPressed(m_ProcessingEvent);
                     if (editState == EditState.Finish)
@@ -2406,7 +2407,7 @@ namespace TMPro
             }
 
             // We must also consume events when IME is active to prevent them from being passed to the text field. // UUM-100552
-            if (consumedEvent || (m_IsCompositionActive && compositionLength > 0))
+            if (consumedEvent || compositionLength > 0)
             {
                 UpdateLabel();
                 eventData.Use();
@@ -2414,9 +2415,9 @@ namespace TMPro
         }
 
         /// <summary>
-        ///
+        /// Handles scroll wheel or touch scroll input to scroll the text when the input field is multiline.
         /// </summary>
-        /// <param name="eventData"></param>
+        /// <param name="eventData">The pointer event data containing scroll delta.</param>
         public virtual void OnScroll(PointerEventData eventData)
         {
             // Return if Single Line
@@ -2447,7 +2448,7 @@ namespace TMPro
                 m_VerticalScrollbar.value = m_ScrollPosition;
             }
 
-            //Debug.Log(GetInstanceID() + "- Scroll Position:" + m_ScrollPosition);
+            //Debug.Log(GetEntityId() + "- Scroll Position:" + m_ScrollPosition);
         }
 
         float GetScrollPositionRelativeToViewport()
@@ -2532,7 +2533,7 @@ namespace TMPro
                 }
                 else
                 {
-                    // Special handling for <CR><LF>
+                    // Special handling for \r\n: if we are on the \r character, we want to move to the end of the \r\n pair, not just after the \r character.
                     if (m_TextComponent.textInfo.characterInfo[caretSelectPositionInternal].character == '\r' && m_TextComponent.textInfo.characterInfo[caretSelectPositionInternal + 1].character == '\n')
                         position = m_TextComponent.textInfo.characterInfo[caretSelectPositionInternal + 1].index + m_TextComponent.textInfo.characterInfo[caretSelectPositionInternal + 1].stringLength;
                     else
@@ -2609,8 +2610,8 @@ namespace TMPro
                         ? m_TextComponent.textInfo.characterInfo[0].index
                         : m_TextComponent.textInfo.characterInfo[caretSelectPositionInternal - 1].index;
 
-                    // Special handling for <CR><LF>
-                    if (position > 0 && m_TextComponent.textInfo.characterInfo[caretSelectPositionInternal - 1].character == '\n' && m_TextComponent.textInfo.characterInfo[caretSelectPositionInternal - 2].character == '\r')
+                    // Special handling for \r\n: if we are on the \n character, we want to move to the start of the \r\n pair, not just before the \n character.
+                    if (position > 0 && caretSelectPositionInternal > 1 && m_TextComponent.textInfo.characterInfo[caretSelectPositionInternal - 1].character == '\n' && m_TextComponent.textInfo.characterInfo[caretSelectPositionInternal - 2].character == '\r')
                         position = m_TextComponent.textInfo.characterInfo[caretSelectPositionInternal - 2].index;
                 }
             }
@@ -3347,7 +3348,7 @@ namespace TMPro
             if (m_ReadOnly)
                 return;
 
-            //Debug.Log("Inserting character " + m_IsCompositionActive);
+            //Debug.Log("Inserting character");
 
             string replaceString = c.ToString();
             Delete();
@@ -3470,19 +3471,16 @@ namespace TMPro
                     else
                         fullText = text.Substring(0, m_StringPosition) +  compositionString + text.Substring(m_StringPosition);
 
-                    m_IsCompositionActive = true;
-
                     //Debug.Log("[" + Time.frameCount + "] Handling IME Input");
                 }
                 else
                 {
                     fullText = text;
-                    m_IsCompositionActive = false;
                     m_ShouldUpdateIMEWindowPosition = true;
 
                 }
 
-                //Debug.Log("Handling IME Input... [" + compositionString + "] of length [" + compositionLength + "] at StringPosition [" + m_StringPosition + "]  IsActive [" + m_IsCompositionActive + "]");
+                //Debug.Log("Handling IME Input... [" + compositionString + "] of length [" + compositionLength + "] at StringPosition [" + m_StringPosition + "]");
 
                 string processed;
                 if (inputType == InputType.Password)
@@ -3549,7 +3547,7 @@ namespace TMPro
 
                 m_VerticalScrollbar.value = GetScrollPositionRelativeToViewport();
 
-                //Debug.Log(GetInstanceID() + "- UpdateScrollbar() - Updating Scrollbar... Value: " + m_VerticalScrollbar.value);
+                //Debug.Log(GetEntityId() + "- UpdateScrollbar() - Updating Scrollbar... Value: " + m_VerticalScrollbar.value);
             }
         }
 
@@ -3572,7 +3570,7 @@ namespace TMPro
 
             m_ScrollPosition = value;
 
-            //Debug.Log(GetInstanceID() + "- OnScrollbarValueChange() - Scrollbar value is: " + value + "  Transform POS: " + m_TextComponent.rectTransform.anchoredPosition);
+            //Debug.Log(GetEntityId() + "- OnScrollbarValueChange() - Scrollbar value is: " + value + "  Transform POS: " + m_TextComponent.rectTransform.anchoredPosition);
         }
 
         void UpdateMaskRegions()
@@ -4317,7 +4315,13 @@ namespace TMPro
 
             if (isFocused)
             {
+                #if UNITY_ANDROID_RENDERSERVICE
+                // in the case of the render service, m_SoftKeyboard.active might not be updated yet at this stage, since
+                // the actual keyboard implementation is handled in a client application.
+                if (m_SoftKeyboard != null)
+                #else
                 if (m_SoftKeyboard != null && !m_SoftKeyboard.active)
+                #endif
                 {
                     m_SoftKeyboard.active = true;
                     m_SoftKeyboard.text = m_Text;
@@ -4433,7 +4437,7 @@ namespace TMPro
 
             if (m_TextComponent != null && IsInteractable())
             {
-                if (m_WasCanceled && m_RestoreOriginalTextOnEscape && !m_IsKeyboardBeingClosedInHoloLens)
+                if (m_WasCanceled && m_RestoreOriginalTextOnEscape && !m_IsKeyboardBeingClosedInTouchscreen)
                     text = m_OriginalText;
 
                 if (m_SoftKeyboard != null)
@@ -4457,7 +4461,7 @@ namespace TMPro
                 if (inputSystem != null)
                     inputSystem.imeCompositionMode = IMECompositionMode.Auto;
 
-				m_IsKeyboardBeingClosedInHoloLens = false;
+                m_IsKeyboardBeingClosedInTouchscreen = false;
             }
 
             MarkGeometryAsDirty();
@@ -4465,6 +4469,16 @@ namespace TMPro
 
         public override void OnDeselect(BaseEventData eventData)
         {
+            // Commit any pending IME composition string before deactivating.
+            // When focus is changed programmatically, OnUpdateSelected is not called,
+            // so the composition is never processed. DeactivateInputField resets the
+            // IME mode and discards the composition, causing the last composed character
+            // (e.g., the final Hangul syllable) to be lost.
+            if (compositionLength > 0)
+            {
+                Append(compositionString);
+            }
+
             DeactivateInputField();
 
             base.OnDeselect(eventData);
@@ -4685,6 +4699,9 @@ namespace TMPro
         /// </summary>
         public virtual float minWidth { get { return 0; } }
 
+        /// <inheritdoc/>
+        public virtual float maxWidth { get { return LayoutUtility.DefaultMaxSize; } }
+
         /// <summary>
         /// Get the displayed with of all input characters.
         /// </summary>
@@ -4716,6 +4733,9 @@ namespace TMPro
         /// See ILayoutElement.minHeight.
         /// </summary>
         public virtual float minHeight { get { return 0; } }
+
+        /// <inheritdoc/>
+        public virtual float maxHeight { get { return LayoutUtility.DefaultMaxSize; } }
 
         /// <summary>
         /// Get the height of all the text if constrained to the height of the RectTransform.
@@ -4753,7 +4773,7 @@ namespace TMPro
         /// <summary>
         /// Function to conveniently set the point size of both Placeholder and Input Field text object.
         /// </summary>
-        /// <param name="pointSize"></param>
+        /// <param name="pointSize">The font size in points to apply to the placeholder and text.</param>
         public void SetGlobalPointSize(float pointSize)
         {
             TMP_Text placeholderTextComponent = m_Placeholder as TMP_Text;
@@ -4767,7 +4787,7 @@ namespace TMPro
         /// <summary>
         /// Function to conveniently set the Font Asset of both Placeholder and Input Field text object.
         /// </summary>
-        /// <param name="fontAsset"></param>
+        /// <param name="fontAsset">The font asset to apply to the placeholder and text.</param>
         public void SetGlobalFontAsset(TMP_FontAsset fontAsset)
         {
             TMP_Text placeholderTextComponent = m_Placeholder as TMP_Text;

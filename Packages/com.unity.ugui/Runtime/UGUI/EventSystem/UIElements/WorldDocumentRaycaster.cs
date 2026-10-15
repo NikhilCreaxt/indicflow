@@ -4,8 +4,7 @@ using UnityEngine.UI;
 
 namespace UnityEngine.UIElements
 {
-    // This code is disabled unless the com.unity.modules.uielements module is present.
-    // The UIElements module is always present in the Editor but it can be stripped from a project build if unused.
+    // This code is disabled unless the com.unity.modules.uielements module is activated in the package manager.
 #if PACKAGE_UITOOLKIT
     /// <summary>
     /// A derived BaseRaycaster to raycast against UI Toolkit world-space document instances at runtime.
@@ -24,13 +23,12 @@ namespace UnityEngine.UIElements
         /// The camera used by this Raycaster to convert screen coordinates to Rays.
         /// If empty, Camera.main is going to be used.
         /// </summary>
-        public new Camera camera
+        public Camera camera
         {
             get => m_EventCamera;
             set => m_EventCamera = value;
         }
 
-        private static PhysicsDocumentPicker worldPicker = new();
 
         /// <summary>
         /// Raycast against the scene.
@@ -51,7 +49,8 @@ namespace UnityEngine.UIElements
 
             var pointerId = currentInputModule.ConvertUIToolkitPointerId(eventData);
 
-            var capturingCamera = PointerDeviceState.GetCameraWithSoftPointerCapture(pointerId);
+            // Can be null if runtime panels have not been created or UI Toolkit is stripped; default to null (no capture)
+            var capturingCamera = IRuntimePanel.pointerDeviceState?.GetCameraWithSoftPointerCapture(pointerId);
             if (capturingCamera != null)
             {
                 var cam = m_EventCamera != null ? m_EventCamera : Camera.main;
@@ -59,18 +58,22 @@ namespace UnityEngine.UIElements
                     return;
             }
 
-            if (!worldPicker.TryPickWithCapture(pointerId, worldRay, maxDistance, layerMask, out _,
-                    out var document, out var elementUnderPointer, out var distance, out var captured))
+
+            var uiElementsUtil = IRuntimePanel.uIElementsRuntimeUtility;
+            if (uiElementsUtil == null || !uiElementsUtil.TryPickWithCapture(pointerId, worldRay, maxDistance, layerMask, out _,
+                    out var panelComponent, out var elementUnderPointer, out var distance, out var captured))
                 return;
+
+            var containerPanel = panelComponent?.GetContainerPanel();
 
             resultAppendList.Add(new RaycastResult
             {
                 // Discard hits against non-UI objects. They should block UI but not hide the PhysicsRaycaster results.
-                gameObject = document == null ? gameObject : document.containerPanel.selectableGameObject,
+                gameObject = panelComponent == null ? gameObject : containerPanel.selectableGameObject,
                 origin = worldRay.origin,
                 worldPosition = worldRay.origin + distance * worldRay.direction,
-                document = document,
-                element = elementUnderPointer,
+                panelComponent = panelComponent,
+                m_element = elementUnderPointer,
                 module = this,
                 distance = distance,
                 sortingOrder = captured ? int.MaxValue : 0,

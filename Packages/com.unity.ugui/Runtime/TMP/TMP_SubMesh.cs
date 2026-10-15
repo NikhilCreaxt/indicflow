@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System;
 using System.Collections;
 using Object = UnityEngine.Object;
@@ -9,6 +9,7 @@ namespace TMPro
 {
     [RequireComponent(typeof(MeshRenderer))]
     [ExecuteAlways]
+    [TMPHelpURL("index")]
     public class TMP_SubMesh : MonoBehaviour
     {
         /// <summary>
@@ -46,7 +47,7 @@ namespace TMPro
             // Assign new font material
             set
             {
-                if (m_sharedMaterial.GetInstanceID() == value.GetInstanceID())
+                if (m_sharedMaterial.GetEntityId() == value.GetEntityId())
                     return;
 
                 m_sharedMaterial = m_material = value;
@@ -133,7 +134,7 @@ namespace TMPro
         /// <summary>
         /// The Mesh Renderer of this text sub object.
         /// </summary>
-        public new Renderer renderer
+        public Renderer renderer
         {
             get { if (m_renderer == null) m_renderer = GetComponent<Renderer>();
 
@@ -262,7 +263,7 @@ namespace TMPro
 
         void OnEnable()
         {
-            //Debug.Log("***** OnEnable() called on object ID " + GetInstanceID() + "]. Parent Text Object ID [" + (textComponent == null ? "" : textComponent.GetInstanceID().ToString()) + "] *****");
+            //Debug.Log("***** OnEnable() called on object ID " + GetEntityId() + "]. Parent Text Object ID [" + (textComponent == null ? "" : textComponent.GetEntityId().ToString()) + "] *****");
 
             // Register Callbacks for various events.
             if (!m_isRegisteredForEvents)
@@ -295,7 +296,7 @@ namespace TMPro
 
         void OnDisable()
         {
-            //Debug.Log("***** OnDisable() called on Sub Object ID [" + GetInstanceID() + "]. Parent Text Object ID [" + textComponent.GetInstanceID() + "] *****");
+            //Debug.Log("***** OnDisable() called on Sub Object ID [" + GetEntityId() + "]. Parent Text Object ID [" + textComponent.GetEntityId() + "] *****");
 
             // Hide the geometry when the object is disabled.
             m_meshFilter.sharedMesh = null;
@@ -310,7 +311,7 @@ namespace TMPro
 
         void OnDestroy()
         {
-            //Debug.Log("***** OnDestroy() called on Sub Object ID [" + GetInstanceID() + "]. Parent Text Object ID [" + textComponent.GetInstanceID() + "] *****");
+            //Debug.Log("***** OnDestroy() called on Sub Object ID [" + GetEntityId() + "]. Parent Text Object ID [" + textComponent.GetEntityId() + "] *****");
 
             // Destroy Mesh
             if (m_mesh != null) DestroyImmediate(m_mesh);
@@ -350,9 +351,9 @@ namespace TMPro
             if (m_sharedMaterial == null)
                 return;
 
-            int targetMaterialID = mat.GetInstanceID();
-            int sharedMaterialID = m_sharedMaterial.GetInstanceID();
-            int fallbackSourceMaterialID = m_fallbackSourceMaterial == null ? 0 : m_fallbackSourceMaterial.GetInstanceID();
+            EntityId targetMaterialID = mat.GetEntityId();
+            EntityId sharedMaterialID = m_sharedMaterial.GetEntityId();
+            EntityId fallbackSourceMaterialID = m_fallbackSourceMaterial == null ? EntityId.None : m_fallbackSourceMaterial.GetEntityId();
 
             // Sync culling with parent text object
             bool hasCullModeProperty = m_sharedMaterial.HasProperty(ShaderUtilities.ShaderTag_CullMode);
@@ -424,7 +425,7 @@ namespace TMPro
         // Event received when font asset properties are changed in Font Inspector
         void ON_FONT_PROPERTY_CHANGED(bool isChanged, Object fontAsset)
         {
-            if (m_fontAsset != null && fontAsset != null && fontAsset.GetInstanceID() == m_fontAsset.GetInstanceID())
+            if (m_fontAsset != null && fontAsset != null && fontAsset.GetEntityId() == m_fontAsset.GetEntityId())
             {
                 // Copy Normal and Bold Weight
                 if (m_fallbackMaterial != null)
@@ -464,7 +465,7 @@ namespace TMPro
                 m_renderer = GetComponent<Renderer>();
 
             // Create Instance Material only if the new material is not the same instance previously used.
-            if (m_material == null || m_material.GetInstanceID() != mat.GetInstanceID())
+            if (m_material == null || m_material.GetEntityId() != mat.GetEntityId())
                 m_material = CreateMaterialInstance(mat);
 
             m_sharedMaterial = m_material;
@@ -533,7 +534,7 @@ namespace TMPro
         /// <summary>
         /// Function called when the padding value for the material needs to be re-calculated.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Uniform padding in mesh units required to avoid clipping expanded SDF effects for the active material.</returns>
         public float GetPaddingForMaterial()
         {
             float padding = ShaderUtilities.GetPadding(m_sharedMaterial, m_TextComponent.extraPadding, m_TextComponent.isUsingBold);
@@ -545,8 +546,8 @@ namespace TMPro
         /// <summary>
         /// Function to update the padding values of the object.
         /// </summary>
-        /// <param name="isExtraPadding"></param>
-        /// <param name="isBold"></param>
+        /// <param name="isExtraPadding">True to add TMP's additional safety padding (shader-dependent, usually a few pixels worth in SDF space) for effects.</param>
+        /// <param name="isUsingBold">True when bold weight is active so padding accounts for thicker glyph outlines in the material.</param>
         public void UpdateMeshPadding(bool isExtraPadding, bool isUsingBold)
         {
             m_padding = ShaderUtilities.GetPadding(m_sharedMaterial, isExtraPadding, isUsingBold);
@@ -554,7 +555,8 @@ namespace TMPro
 
 
         /// <summary>
-        ///
+        /// Suppresses the base rebuild; updates are driven by the parent text component.
+        /// Use <see cref="TextMeshPro.SetVerticesDirty"/> on the parent to mark it dirty.
         /// </summary>
         public void SetVerticesDirty()
         {
@@ -563,7 +565,7 @@ namespace TMPro
 
 
         /// <summary>
-        ///
+        /// Applies the shared material to the renderer and syncs culling with the parent text component.
         /// </summary>
         public void SetMaterialDirty()
         {
@@ -578,7 +580,7 @@ namespace TMPro
 
 
         /// <summary>
-        ///
+        /// Applies the shared material to the renderer and syncs culling with the parent text component.
         /// </summary>
         protected void UpdateMaterial()
         {

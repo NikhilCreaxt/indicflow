@@ -20,16 +20,16 @@ namespace TMPro
         }
 
         /// <summary>
-        /// Instance ID of the TMP Asset
+        /// EntityId of the TMP Asset
         /// </summary>
-        public int instanceID
+        public EntityId entityId
         {
             get
             {
-                if (m_InstanceID == 0)
-                    m_InstanceID = GetInstanceID();
+                if (m_EntityId == EntityId.None)
+                    m_EntityId = GetEntityId();
 
-                return m_InstanceID;
+                return m_EntityId;
             }
         }
 
@@ -92,6 +92,9 @@ namespace TMPro
 
         [SerializeField]
         internal string m_Version;
+
+        [NonSerialized]
+        internal EntityId m_EntityId;
 
         internal int m_InstanceID;
 

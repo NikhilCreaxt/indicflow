@@ -6,6 +6,7 @@ using UnityEngine.Serialization;
 namespace UnityEngine.EventSystems
 {
     [AddComponentMenu("Event/Event Trigger")]
+    [UGUIHelpURL("EventTrigger")]
     /// <summary>
     /// Receives events from the EventSystem and calls registered functions for each event.
     /// </summary>
@@ -187,10 +188,6 @@ namespace UnityEngine.EventSystems
         [FormerlySerializedAs("delegates")]
         [SerializeField]
         private List<Entry> m_Delegates;
-
-        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        [Obsolete("Please use triggers instead (UnityUpgradable) -> triggers", true)]
-        public List<Entry> delegates { get { return triggers; } set { triggers = value; } }
 
         protected EventTrigger()
         {}

@@ -83,9 +83,11 @@ internal class ScrollRectTests : IPrebuildSetup
 
     #region Enable disable scrollbars
 
-    [UnityTest, Ignore("Disabled for Instability https://jira.unity3d.com/browse/UUM-42513")]
     [TestCase(true, ExpectedResult = null)]
     [TestCase(false, ExpectedResult = null)]
+#if ENABLE_IL2CPP
+    [Ignore("This test depends on using reflection to access the Count property in UnityEngine.CoreModule.  When targeting the il2cpp backend the property is stripped which leads to the test failing")]
+#endif
     public IEnumerator OnEnableShouldAddListeners(bool isHorizontal)
     {
         ScrollRect scrollRect = m_PrefabRoot.GetComponentInChildren<ScrollRect>();
@@ -107,9 +109,11 @@ internal class ScrollRectTests : IPrebuildSetup
         Assert.AreEqual(callCount + 1, (int)property.GetValue(invokeableCallList, null));
     }
 
-    [UnityTest, Ignore("Disabled for Instability https://jira.unity3d.com/browse/UUM-42513")]
     [TestCase(true, ExpectedResult = null)]
     [TestCase(false, ExpectedResult = null)]
+#if ENABLE_IL2CPP
+    [Ignore("This test depends on using reflection to access the Count property in UnityEngine.CoreModule.  When targeting the il2cpp backend the property is stripped which leads to the test failing")]
+#endif
     public IEnumerator OnDisableShouldRemoveListeners(bool isHorizontal)
     {
         ScrollRect scrollRect = m_PrefabRoot.GetComponentInChildren<ScrollRect>();
@@ -129,9 +133,11 @@ internal class ScrollRectTests : IPrebuildSetup
         Assert.AreEqual(0, (int)property.GetValue(invokeableCallList, null));
     }
 
-    [Test, Ignore("Disabled for Instability https://jira.unity3d.com/browse/UUM-42513")]
     [TestCase(true)]
     [TestCase(false)]
+#if ENABLE_IL2CPP
+    [Ignore("This test depends on using reflection to access the Count property in UnityEngine.CoreModule.  When targeting the il2cpp backend the property is stripped which leads to the test failing")]
+#endif
     public void SettingScrollbarShouldRemoveThenAddListeners(bool testHorizontal)
     {
         ScrollRect scrollRect = m_PrefabRoot.GetComponentInChildren<ScrollRect>();
@@ -255,23 +261,6 @@ internal class ScrollRectTests : IPrebuildSetup
         Assert.Less(scrollRect.velocity.magnitude, 1);
     }
 
-    [UnityTest][Ignore("Fails")]
-    public IEnumerator LateUpdateWithElasticShouldDecelerate()
-    {
-        ScrollRect scrollRect = m_PrefabRoot.GetComponentInChildren<ScrollRect>();
-        scrollRect.velocity = Vector2.one;
-        scrollRect.inertia = false;
-        scrollRect.content.anchoredPosition = Vector2.one * 2;
-        scrollRect.movementType = ScrollRect.MovementType.Elastic;
-
-        yield return null;
-        Assert.AreNotEqual(1, scrollRect.velocity.magnitude);
-        var newMagnitude = scrollRect.velocity.magnitude;
-
-        yield return null;
-        Assert.AreNotEqual(newMagnitude, scrollRect.velocity.magnitude);
-    }
-
     [UnityTest]
     public IEnumerator LateUpdateWithElasticNoOffsetShouldZeroVelocity()
     {
@@ -315,25 +304,6 @@ internal class ScrollRectTests : IPrebuildSetup
         });
 
         Assert.AreEqual(expected, scrollRect.content.anchoredPosition);
-    }
-
-    [Test][Ignore("Tests fail without mocking")]
-    [TestCase(ScrollRect.MovementType.Clamped, 1f, 1f)]
-    [TestCase(ScrollRect.MovementType.Unrestricted, 150, 150)]
-    [TestCase(ScrollRect.MovementType.Elastic, 150, 150)]
-    public void OnScrollClampedShouldClampContentAnchoredPosition(ScrollRect.MovementType movementType, float anchoredPosX,
-        float anchoredPosY)
-    {
-        ScrollRect scrollRect = m_PrefabRoot.GetComponentInChildren<ScrollRect>();
-        Vector2 scrollDelta = new Vector2(50, -50);
-        scrollRect.movementType = movementType;
-        scrollRect.content.anchoredPosition = new Vector2(2.5f, 2.5f);
-
-        scrollRect.OnScroll(new PointerEventData(m_PrefabRoot.GetComponentInChildren<EventSystem>())
-        {
-            scrollDelta = scrollDelta
-        });
-        Assert.AreEqual(new Vector2(anchoredPosX, anchoredPosY), scrollRect.content.anchoredPosition);
     }
 
     [Test]

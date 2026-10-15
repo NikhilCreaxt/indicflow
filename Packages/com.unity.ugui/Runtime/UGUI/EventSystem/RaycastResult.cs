@@ -1,3 +1,4 @@
+using System;
 using UnityEngine.UIElements;
 
 namespace UnityEngine.EventSystems
@@ -115,18 +116,36 @@ namespace UnityEngine.EventSystems
         // The UIElements module is always present in the Editor but it can be stripped from a project build if unused.
 #if PACKAGE_UITOOLKIT
         /// <summary>
+        /// The UIToolkit component that was intersected by this raycast, if any.
+        /// </summary>
+        /// <remarks>This is only useful in the context of EventSystem UI Toolkit interoperability.</remarks>
+        /// <seealso cref="UnityEngine.UIElements.EventSystemUIToolkitInteroperabilityBridge"/>
+        public IPanelComponent panelComponent;
+
+        /// <summary>
         /// The UIToolkit Document that was intersected by this raycast, if any.
         /// </summary>
         /// <remarks>This is only useful in the context of EventSystem UI Toolkit interoperability.</remarks>
         /// <seealso cref="UnityEngine.UIElements.EventSystemUIToolkitInteroperabilityBridge"/>
-        public UIDocument document;
+        [Obsolete("RaycastResult.document is obsolete. Use RaycastResult.panelComponent instead.", true)]
+        public UIDocument document
+        {
+            get => panelComponent as UIDocument;
+            set => panelComponent = value;
+        }
 
+        //This is a visualElement but we rely on the getter being stripped to not pulling the type.
+        internal IEventHandler m_element;
         /// <summary>
         /// The UIToolkit Visual Element that was intersected by this raycast, if any.
         /// </summary>
         /// <remarks>This is only useful in the context of EventSystem UI Toolkit interoperability.</remarks>
         /// <seealso cref="UnityEngine.UIElements.EventSystemUIToolkitInteroperabilityBridge"/>
-        public VisualElement element;
+        public VisualElement element
+        {
+            get => (VisualElement)m_element;
+            set => m_element = value;
+        }
 #endif
 
         /// <summary>
@@ -147,8 +166,8 @@ namespace UnityEngine.EventSystems
             screenPosition = Vector3.zero;
             displayIndex = 0;
 #if PACKAGE_UITOOLKIT
-            document = null;
-            element = null;
+            panelComponent = null;
+            m_element = null;
 #endif
         }
 

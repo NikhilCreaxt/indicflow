@@ -1,8 +1,8 @@
 {
   "name": "com.unity.ugui",
   "displayName": "IndicFlow - TMP Text Shaping Engine",
-  "version": "2.0.0-hb.29",
-  "unity": "2019.2",
+  "version": "2.6.0-hb.30",
+  "unity": "6000.6",
   "keywords": [
     "indicflow",
     "harfbuzz",
@@ -14,10 +14,13 @@
     "ios",
     "unity"
   ],
-  "description": "IndicFlow package for HarfBuzz-powered Indic text shaping in Unity TextMeshPro (UGUI), including Hindi/Devanagari support across Editor, Android, and iOS.",
+  "description": "IndicFlow package for HarfBuzz-powered Indic text shaping in Unity TextMeshPro (UGUI), including Hindi/Devanagari support across Editor, Android, and iOS. Based on Unity uGUI 2.6.0 (Unity 6000.6).",
   "dependencies": {
     "com.unity.modules.ui": "1.0.0",
-    "com.unity.modules.imgui": "1.0.0"
+    "com.unity.modules.imgui": "1.0.0",
+    "com.unity.modules.audio": "1.0.0",
+    "com.unity.modules.physics2d": "1.0.0",
+    "com.unity.modules.physics": "1.0.0"
   },
   "documentationUrl": "Documentation~/HarfBuzzHindiTMP.md",
   "samples": [

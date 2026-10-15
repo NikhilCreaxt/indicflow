@@ -8,6 +8,7 @@ namespace UnityEngine.UI
 {
     [AddComponentMenu("Event/Graphic Raycaster")]
     [RequireComponent(typeof(Canvas))]
+    [UGUIHelpURL("GraphicRaycaster")]
     /// <summary>
     /// A derived BaseRaycaster to raycast against Graphic elements.
     /// </summary>
@@ -41,9 +42,7 @@ namespace UnityEngine.UI
         /// <summary>
         /// Priority of the raycaster based upon sort order.
         /// </summary>
-        /// <returns>
-        /// The sortOrder priority.
-        /// </returns>
+        /// <value>The sortOrder priority.</value>
         public override int sortOrderPriority
         {
             get
@@ -59,9 +58,7 @@ namespace UnityEngine.UI
         /// <summary>
         /// Priority of the raycaster based upon render order.
         /// </summary>
-        /// <returns>
-        /// The renderOrder priority.
-        /// </returns>
+        /// <value>The renderOrder priority.</value>
         public override int renderOrderPriority
         {
             get
@@ -155,7 +152,7 @@ namespace UnityEngine.UI
                 // so we use the standard none multiple display method. (case 741751)
                 float w = Screen.width;
                 float h = Screen.height;
-                if (displayIndex > 0 && displayIndex < Display.displays.Length)
+                if (UnityEngineInternal.DisplayInternal.IsASecondaryDisplayIndex(displayIndex))
                 {
 #if UNITY_ANDROID
                     // Changed to be coherent for Android which passes display-relative rendering coordinates
@@ -188,7 +185,7 @@ namespace UnityEngine.UI
 
                 if (currentEventCamera != null)
                 {
-                    float projectionDirection = ray.direction.z;
+                    float projectionDirection = Vector3.Dot(ray.direction, currentEventCamera.transform.forward);
                     distanceToClipPlane = Mathf.Approximately(0.0f, projectionDirection)
                         ? Mathf.Infinity
                         : Mathf.Abs((currentEventCamera.farClipPlane - currentEventCamera.nearClipPlane) / projectionDirection);
@@ -288,11 +285,7 @@ namespace UnityEngine.UI
         /// <summary>
         /// The camera that will generate rays for this raycaster.
         /// </summary>
-        /// <returns>
-        /// - Null if Camera mode is ScreenSpaceOverlay or ScreenSpaceCamera and has no camera.
-        /// - canvas.worldCanvas if not null
-        /// - Camera.main.
-        /// </returns>
+        /// <value>Null if Camera mode is ScreenSpaceOverlay or ScreenSpaceCamera and has no camera; canvas.worldCanvas if not null; otherwise Camera.main.</value>
         public override Camera eventCamera
         {
             get

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.TextCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +7,8 @@ using UnityEngine.Serialization;
 
 namespace TMPro
 {
-    [HelpURL("https://docs.unity3d.com/Packages/com.unity.ugui@2.0/manual/TextMeshPro/Sprites.html")]
-    [ExcludeFromPresetAttribute]
+    [TMPHelpURL("Sprites")]
+    [ExcludeFromPreset]
     public class TMP_SpriteAsset : TMP_Asset
     {
         internal Dictionary<int, int> m_NameLookup;
@@ -18,7 +18,7 @@ namespace TMPro
         public Texture spriteSheet;
 
         /// <summary>
-        ///
+        /// List of sprite characters in this asset. Used to populate lookup dictionaries.
         /// </summary>
         public List<TMP_SpriteCharacter> spriteCharacterTable
         {
@@ -88,8 +88,6 @@ namespace TMPro
         /// <returns></returns>
         Material GetDefaultSpriteMaterial()
         {
-            ShaderUtilities.GetShaderPropertyIDs();
-
             // Add a new material
             Shader shader = Shader.Find("TextMeshPro/Sprite");
             Material tempMaterial = new Material(shader);
@@ -192,8 +190,8 @@ namespace TMPro
         /// <summary>
         /// Function which returns the sprite index using the hashcode of the name
         /// </summary>
-        /// <param name="hashCode"></param>
-        /// <returns></returns>
+        /// <param name="hashCode">Case-insensitive hash of the sprite name, typically from <c>TMP_TextUtilities.GetHashCode(spriteName)</c>.</param>
+        /// <returns>The sprite index in this asset's tables, or -1 when no sprite name produces the given hash.</returns>
         public int GetSpriteIndexFromHashcode(int hashCode)
         {
             if (m_NameLookup == null)
@@ -211,8 +209,8 @@ namespace TMPro
         /// <summary>
         /// Returns the index of the sprite for the given unicode value.
         /// </summary>
-        /// <param name="unicode"></param>
-        /// <returns></returns>
+        /// <param name="unicode">Unicode scalar value (for example 0x263A) assigned to a <see cref="TMP_SpriteCharacter"/> in this asset.</param>
+        /// <returns>The sprite glyph index, or -1 if the code point is not mapped in this asset.</returns>
         public int GetSpriteIndexFromUnicode (uint unicode)
         {
             if (m_SpriteCharacterLookup == null)
@@ -230,8 +228,8 @@ namespace TMPro
         /// <summary>
         /// Returns the index of the sprite for the given name.
         /// </summary>
-        /// <param name="name"></param>
-        /// <returns></returns>
+        /// <param name="name">Sprite name as authored in the sprite asset (case-insensitive hash; null or empty yields no match).</param>
+        /// <returns>The sprite index in this asset, or -1 when the name is not found.</returns>
         public int GetSpriteIndexFromName (string name)
         {
             if (m_NameLookup == null)
@@ -246,15 +244,24 @@ namespace TMPro
         /// <summary>
         /// Used to keep track of which Sprite Assets have been searched.
         /// </summary>
-        private static HashSet<int> k_searchedSpriteAssets;
+        private static HashSet<EntityId> k_searchedSpriteAssets;
+
+#if UNITY_EDITOR
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterAssembliesLoaded)]
+        static void ResetStaticsOnLoad()
+        {
+            k_searchedSpriteAssets = default;
+        }
+#endif
 
         /// <summary>
         /// Search through the given sprite asset and its fallbacks for the specified sprite matching the given unicode character.
         /// </summary>
-        /// <param name="spriteAsset">The font asset to search for the given character.</param>
+        /// <param name="spriteAsset">The sprite asset to search for the given character.</param>
         /// <param name="unicode">The character to find.</param>
-        /// <param name="glyph">out parameter containing the glyph for the specified character (if found).</param>
-        /// <returns></returns>
+        /// <param name="includeFallbacks">Whether to search fallback sprite assets.</param>
+        /// <param name="spriteIndex">out parameter containing the sprite index for the specified character (if found).</param>
+        /// <returns>The asset instance that contains the sprite, or null if no match exists.</returns>
         public static TMP_SpriteAsset SearchForSpriteByUnicode(TMP_SpriteAsset spriteAsset, uint unicode, bool includeFallbacks, out int spriteIndex)
         {
             // Check to make sure sprite asset is not null
@@ -267,12 +274,12 @@ namespace TMPro
 
             // Initialize list to track instance of Sprite Assets that have already been searched.
             if (k_searchedSpriteAssets == null)
-                k_searchedSpriteAssets = new HashSet<int>();
+                k_searchedSpriteAssets = new HashSet<EntityId>();
             else
                 k_searchedSpriteAssets.Clear();
 
             // Get instance ID of sprite asset and add to list.
-            int id = spriteAsset.GetInstanceID();
+            EntityId id = spriteAsset.GetEntityId();
             k_searchedSpriteAssets.Add(id);
 
             // Search potential fallback sprite assets if includeFallbacks is true.
@@ -303,7 +310,7 @@ namespace TMPro
                 TMP_SpriteAsset temp = spriteAssets[i];
                 if (temp == null) continue;
 
-                int id = temp.GetInstanceID();
+                EntityId id = temp.GetEntityId();
 
                 // Skip sprite asset if it has already been searched.
                 if (k_searchedSpriteAssets.Add(id) == false)
@@ -363,11 +370,11 @@ namespace TMPro
 
             // Initialize or clear list to Sprite Assets that have already been searched.
             if (k_searchedSpriteAssets == null)
-                k_searchedSpriteAssets = new HashSet<int>();
+                k_searchedSpriteAssets = new HashSet<EntityId>();
             else
                 k_searchedSpriteAssets.Clear();
 
-            int id = spriteAsset.instanceID;
+            EntityId id = spriteAsset.entityId;
 
             // Add to list of font assets already searched.
             k_searchedSpriteAssets.Add(id);
@@ -443,7 +450,7 @@ namespace TMPro
                 TMP_SpriteAsset temp = spriteAssets[i];
                 if (temp == null) continue;
 
-                int id = temp.instanceID;
+                EntityId id = temp.entityId;
 
                 // Skip sprite asset if it has already been searched.
                 if (k_searchedSpriteAssets.Add(id) == false)

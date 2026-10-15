@@ -2568,7 +2568,7 @@ namespace TMPro
             if (fontBytes == null || fontBytes.bytes == null || fontBytes.bytes.Length == 0)
                 return false;
 
-            string fileName = $"{cachePrefix}_{fontBytes.GetInstanceID()}_{fontBytes.bytes.Length}.ttf";
+            string fileName = $"{cachePrefix}_{fontBytes.GetEntityId()}_{fontBytes.bytes.Length}.ttf";
             string targetPath = Path.Combine(Application.temporaryCachePath, fileName);
 
             if (!File.Exists(targetPath) || new FileInfo(targetPath).Length != fontBytes.bytes.Length)

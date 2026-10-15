@@ -1,15 +1,13 @@
-﻿using UnityEngine;
-using System.Text;
-using System.Collections;
+using UnityEngine;
 using System.Collections.Generic;
 
 namespace TMPro
 {
     public static class TMPro_ExtensionMethods
     {
-        
+
         /// <summary>
-        /// Converts a string of 4 ascii characters to an int. 
+        /// Converts a string of 4 ascii characters to an int.
         /// </summary>
         /// <param name="s">String comprised of 4 ascii characters.</param>
         /// <returns>The integer value for the string.</returns>
@@ -17,11 +15,11 @@ namespace TMPro
         {
             if (string.IsNullOrEmpty(s))
                 return 0;
-            
-            return s[0] << 24 | s[1] << 16 | s[2] << 8 | s[3];            
+
+            return s[0] << 24 | s[1] << 16 | s[2] << 8 | s[3];
         }
-        
-        
+
+
         public static int[] ToIntArray(this string text)
         {
             int[] intArray = new int[text.Length];
@@ -92,11 +90,11 @@ namespace TMPro
 
         public static int FindInstanceID <T> (this List<T> list, T target) where T : Object
         {
-            int targetID = target.GetInstanceID();
+            EntityId targetID = target.GetEntityId();
 
             for (int i = 0; i < list.Count; i++)
             {
-                if (list[i].GetInstanceID() == targetID)
+                if (list[i].GetEntityId() == targetID)
                     return i;
             }
             return -1;
@@ -279,8 +277,12 @@ namespace TMPro
         public const float FLOAT_UNSET = -32767;
         public const int INT_UNSET = -32767;
 
-        public static Vector2 MAX_16BIT = new Vector2(FLOAT_MAX, FLOAT_MAX);
-        public static Vector2 MIN_16BIT = new Vector2(FLOAT_MIN, FLOAT_MIN);
+        public static readonly Vector2 MAX_16BIT = new Vector2(FLOAT_MAX, FLOAT_MAX);
+        public static readonly Vector2 MIN_16BIT = new Vector2(FLOAT_MIN, FLOAT_MIN);
+
+        // Max quads (visible glyphs) per submesh. 16383 * 4 = 65532 vertices, which stays under
+        // Unity's 65535-vertex UInt16 mesh-index limit; text beyond this spills into a new submesh.
+        internal const int MAX_QUADS_PER_MESH = 16383;
 
         public static bool Approximately(float a, float b)
         {

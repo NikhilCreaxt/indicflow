@@ -9,6 +9,7 @@ namespace UnityEngine.UI
     [ExecuteAlways]
     [DisallowMultipleComponent]
     [RequireComponent(typeof(RectTransform))]
+    [UGUIHelpURL("ScrollRect")]
     /// <summary>
     /// A component for making a child RectTransform scroll.
     /// </summary>
@@ -415,7 +416,7 @@ namespace UnityEngine.UI
         private ScrollRectEvent m_OnValueChanged = new ScrollRectEvent();
 
         /// <summary>
-        /// Callback executed when the position of the child changes.
+        /// Callback executed when the position of the child changes. Provides the normalized position as a Vector2.
         /// </summary>
         /// <remarks>
         /// onValueChanged is used to watch for changes in the ScrollRect object.
@@ -1123,6 +1124,8 @@ namespace UnityEngine.UI
         /// Called by the layout system.
         /// </summary>
         public virtual float minWidth { get { return -1; } }
+        /// <inheritdoc/>
+        public virtual float maxWidth { get { return LayoutUtility.DefaultMaxSize; } }
         /// <summary>
         /// Called by the layout system.
         /// </summary>
@@ -1136,6 +1139,8 @@ namespace UnityEngine.UI
         /// Called by the layout system.
         /// </summary>
         public virtual float minHeight { get { return -1; } }
+        /// <inheritdoc/>
+        public virtual float maxHeight { get { return LayoutUtility.DefaultMaxSize; } }
         /// <summary>
         /// Called by the layout system.
         /// </summary>

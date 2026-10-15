@@ -11,6 +11,7 @@ namespace TMPro
         FourCornersGradient
     }
 
+    [TMPHelpURL("ColorGradients")]
     [System.Serializable][ExcludeFromPresetAttribute]
     public class TMP_ColorGradient : ScriptableObject
     {
@@ -39,7 +40,7 @@ namespace TMPro
         /// <summary>
         /// Constructor allowing to set the default color of the Color Gradient.
         /// </summary>
-        /// <param name="color"></param>
+        /// <param name="color">The color to use for all four corners of the gradient.</param>
         public TMP_ColorGradient(Color color)
         {
             colorMode = k_DefaultColorMode;

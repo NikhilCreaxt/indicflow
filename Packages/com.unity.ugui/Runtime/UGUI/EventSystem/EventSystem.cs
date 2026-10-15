@@ -10,6 +10,7 @@ namespace UnityEngine.EventSystems
 {
     [AddComponentMenu("Event/Event System")]
     [DisallowMultipleComponent]
+    [UGUIHelpURL("EventSystem")]
     /// <summary>
     /// Handles input, raycasting, and sending events.
     /// </summary>
@@ -19,11 +20,32 @@ namespace UnityEngine.EventSystems
     /// </remarks>
     public class EventSystem : UIBehaviour
     {
+        private static readonly List<EventSystem> m_EventSystems = new List<EventSystem>();
+
+#if PACKAGE_UITOOLKIT
+        private struct UIToolkitOverrideConfigOld
+        {
+            public EventSystem activeEventSystem;
+            public bool sendEvents;
+            public bool createPanelGameObjectsOnStart;
+        }
+        private static UIToolkitOverrideConfigOld? s_UIToolkitOverrideConfigOld = null;
+#endif
+
+#if UNITY_EDITOR
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterAssembliesLoaded)]
+        static void ResetStaticsOnLoad()
+        {
+            m_EventSystems.Clear();
+
+#if PACKAGE_UITOOLKIT
+            s_UIToolkitOverrideConfigOld = null;
+#endif
+        }
+#endif
         private List<BaseInputModule> m_SystemInputModules = new List<BaseInputModule>();
 
         private BaseInputModule m_CurrentInputModule;
-
-        private  static List<EventSystem> m_EventSystems = new List<EventSystem>();
 
         /// <summary>
         /// Return the current EventSystem.
@@ -102,7 +124,7 @@ namespace UnityEngine.EventSystems
             get { return m_CurrentSelected; }
         }
 
-        [Obsolete("lastSelectedGameObject is no longer supported")]
+        [Obsolete("lastSelectedGameObject is no longer supported", true)]
         public GameObject lastSelectedGameObject
         {
             get { return null; }
@@ -327,7 +349,7 @@ namespace UnityEngine.EventSystems
         // This code is disabled unless the com.unity.modules.uielements module is present.
         // The UIElements module is always present in the Editor but it can be stripped from a project build if unused.
 #if PACKAGE_UITOOLKIT
-        [SerializeField, HideInInspector] private UIToolkitInteroperabilityBridge m_UIToolkitInterop = new ();
+        private UIToolkitInteroperabilityBridge m_UIToolkitInterop = new ();
 
         /// <summary>
         /// Use this property to initialize UI Toolkit interoperability with uGUI events.
@@ -344,22 +366,12 @@ namespace UnityEngine.EventSystems
             get
             {
 #if PACKAGE_UITOOLKIT
-                return uiToolkitInterop.overrideUIToolkitEvents && UIDocument.EnabledDocumentCount > 0;
+                return uiToolkitInterop.overrideUIToolkitEvents && IRuntimePanel.uIElementsRuntimeUtility != null && IRuntimePanel.uIElementsRuntimeUtility.HasActiveDocuments();
 #else
                 return false;
 #endif
             }
         }
-
-#if PACKAGE_UITOOLKIT
-        private struct UIToolkitOverrideConfigOld
-        {
-            public EventSystem activeEventSystem;
-            public bool sendEvents;
-            public bool createPanelGameObjectsOnStart;
-        }
-        private static UIToolkitOverrideConfigOld? s_UIToolkitOverrideConfigOld = null;
-#endif
 
         /// <summary>
         /// Sets how UI Toolkit runtime panels receive events and handle selection
@@ -393,9 +405,10 @@ namespace UnityEngine.EventSystems
             };
 
             var eventSystem = activeEventSystem != null ? activeEventSystem : EventSystem.current;
-            if (UIElementsRuntimeUtility.activeEventSystem != null && UIElementsRuntimeUtility.activeEventSystem != eventSystem)
+            // Can be null if runtime panels have not been created (e.g., if UI Toolkit is stripped or not in use)
+            if (IRuntimePanel.uIElementsRuntimeUtility?.activeEventSystem != null && IRuntimePanel.uIElementsRuntimeUtility.activeEventSystem != eventSystem)
             {
-                ((EventSystem)UIElementsRuntimeUtility.activeEventSystem).uiToolkitInterop.overrideUIToolkitEvents = false;
+                ((EventSystem)IRuntimePanel.uIElementsRuntimeUtility.activeEventSystem).uiToolkitInterop.overrideUIToolkitEvents = false;
             }
             if (eventSystem != null && eventSystem.isActiveAndEnabled)
             {

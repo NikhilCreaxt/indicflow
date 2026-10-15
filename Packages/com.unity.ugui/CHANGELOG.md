@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.6.0-hb.30] - 2026-10-15
+- Rebased IndicFlow onto Unity uGUI 2.6.0 (ships with Unity 6000.6). Fixes compile errors on Unity 6.6 (`ScreenOverlayPanelPicker`, `PhysicsDocumentPicker`, `PanelInputConfiguration.Settings`).
+- Requires Unity 6000.6 or newer. For Unity 6000.2–6000.4, stay on `v2.0.0-hb.29`.
+- Dropped the Unity 6000.2 compatibility shims (display-index checks, `Switch2` guards, package path lookups) that are no longer needed on 6000.6.
+- No changes to HarfBuzz shaping, No-Join settings, bundled fonts or native plugins. Asset GUIDs are unchanged, so existing scenes and prefabs keep their references.
+
 ## [2.0.0-hb.29] - 2026-06-04
 - Added WebGL native plugin support for `TMPro.HarfBuzzTextMeshProUGUI`.
 - Built and packaged a WebGL bridge archive under `Runtime/Plugins/WebGL`.

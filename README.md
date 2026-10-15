@@ -8,13 +8,17 @@ If Hindi text looks correct in Editor but breaks on devices (conjuncts, matras, 
 
 Add this to `Packages/manifest.json`:
 
+Unity 6000.6 or newer:
+
 ```json
 {
   "dependencies": {
-    "com.unity.ugui": "https://github.com/NikhilCreaxt/indicflow.git?path=/Packages/com.unity.ugui#v2.0.0-hb.29"
+    "com.unity.ugui": "https://github.com/NikhilCreaxt/indicflow.git?path=/Packages/com.unity.ugui#stable"
   }
 }
 ```
+
+Unity 6000.2 – 6000.4 (uGUI 2.0.0 base): use `#v2.0.0-hb.29` instead of `#stable`.
 
 Important:
 - This is a replacement fork of `com.unity.ugui`.
@@ -45,12 +49,13 @@ Use No-Join rules when specific Hindi words (or specific conjunct patterns insid
 - Android (IL2CPP)
 - iOS (IL2CPP)
 - WebGL
-- Unity 6000.2.x, 6000.3.x, and 6000.4.x
+- Unity 6000.6.x on `stable` (2.6.0-hb.30+, based on uGUI 2.6.0)
+- Unity 6000.2.x, 6000.3.x, and 6000.4.x on `v2.0.0-hb.29`
 
 ## Common Errors
 
 ### `CS0136 ... packagePath ...`
-- Use `#v2.0.0-hb.29` or newer.
+- Use `#v2.0.0-hb.29` or newer (or `#stable` on Unity 6000.6).
 - Close Unity, delete `Library/PackageCache/com.unity.ugui@*`, reopen.
 
 ### `HarfBuzz native plugin missing ... HindiHarfBuzz not found`
